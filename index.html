@@ -1,0 +1,2003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    
+    /* ───────────────────────────────────────────────────────────────
+       Theme tokens.
+
+       Every colour in the component catalog resolves through one of
+       these (see templates/catalog/*.ts — var(--fb-accent, #3b82f6)
+       and friends). Redefining them in the page's customCss re-themes
+       the ENTIRE catalog in one block:
+
+         :root {
+           --fb-accent: #f5b642;
+           --fb-surface: #16150f;
+           --fb-text: #f5f2ea;
+         }
+
+       The values below are the historical hard-coded defaults, so a
+       page that defines no theme renders exactly as it always has.
+       Each catalog usage also carries the same literal as its var()
+       fallback, so components stay correct even if this block is
+       stripped (e.g. an exported fragment).
+       ─────────────────────────────────────────────────────────────── */
+    :root {
+      --fb-accent: #3b82f6;
+      --fb-accent-contrast: #ffffff;
+
+      --fb-surface: #ffffff;
+      --fb-surface-muted: #f8fafc;
+      --fb-surface-inverse: #0f172a;
+
+      --fb-text: #374151;
+      --fb-text-strong: #1f2937;
+      --fb-text-muted: #6b7280;
+      --fb-text-subtle: #9ca3af;
+      --fb-text-inverse: #e6edf3;
+
+      --fb-border: #e5e7eb;
+      --fb-success: #10b981;
+      --fb-warning: #f59e0b;
+      --fb-danger: #ef4444;
+      --fb-shadow: rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      background-color: var(--fb-surface, #ffffff);
+      min-height: 100%;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    
+    button, input, textarea, select {
+      font-family: inherit;
+      font-size: inherit;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      margin: 0;
+      line-height: 1.2;
+    }
+    
+    p {
+      margin: 0;
+    }
+  
+    
+    
+    /* ───────────────────────────────────────────────────────────────
+       Theme tokens.
+
+       Every colour in the component catalog resolves through one of
+       these (see templates/catalog/*.ts — var(--fb-accent, #3b82f6)
+       and friends). Redefining them in the page's customCss re-themes
+       the ENTIRE catalog in one block:
+
+         :root {
+           --fb-accent: #f5b642;
+           --fb-surface: #16150f;
+           --fb-text: #f5f2ea;
+         }
+
+       The values below are the historical hard-coded defaults, so a
+       page that defines no theme renders exactly as it always has.
+       Each catalog usage also carries the same literal as its var()
+       fallback, so components stay correct even if this block is
+       stripped (e.g. an exported fragment).
+       ─────────────────────────────────────────────────────────────── */
+    :root {
+      --fb-accent: #3b82f6;
+      --fb-accent-contrast: #ffffff;
+
+      --fb-surface: #ffffff;
+      --fb-surface-muted: #f8fafc;
+      --fb-surface-inverse: #0f172a;
+
+      --fb-text: #374151;
+      --fb-text-strong: #1f2937;
+      --fb-text-muted: #6b7280;
+      --fb-text-subtle: #9ca3af;
+      --fb-text-inverse: #e6edf3;
+
+      --fb-border: #e5e7eb;
+      --fb-success: #10b981;
+      --fb-warning: #f59e0b;
+      --fb-danger: #ef4444;
+      --fb-shadow: rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      background-color: var(--fb-surface, #ffffff);
+      min-height: 100%;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    
+    button, input, textarea, select {
+      font-family: inherit;
+      font-size: inherit;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      margin: 0;
+      line-height: 1.2;
+    }
+    
+    p {
+      margin: 0;
+    }
+  
+    
+    
+    /* ───────────────────────────────────────────────────────────────
+       Theme tokens.
+
+       Every colour in the component catalog resolves through one of
+       these (see templates/catalog/*.ts — var(--fb-accent, #3b82f6)
+       and friends). Redefining them in the page's customCss re-themes
+       the ENTIRE catalog in one block:
+
+         :root {
+           --fb-accent: #f5b642;
+           --fb-surface: #16150f;
+           --fb-text: #f5f2ea;
+         }
+
+       The values below are the historical hard-coded defaults, so a
+       page that defines no theme renders exactly as it always has.
+       Each catalog usage also carries the same literal as its var()
+       fallback, so components stay correct even if this block is
+       stripped (e.g. an exported fragment).
+       ─────────────────────────────────────────────────────────────── */
+    :root {
+      --fb-accent: #3b82f6;
+      --fb-accent-contrast: #ffffff;
+
+      --fb-surface: #ffffff;
+      --fb-surface-muted: #f8fafc;
+      --fb-surface-inverse: #0f172a;
+
+      --fb-text: #374151;
+      --fb-text-strong: #1f2937;
+      --fb-text-muted: #6b7280;
+      --fb-text-subtle: #9ca3af;
+      --fb-text-inverse: #e6edf3;
+
+      --fb-border: #e5e7eb;
+      --fb-success: #10b981;
+      --fb-warning: #f59e0b;
+      --fb-danger: #ef4444;
+      --fb-shadow: rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      background-color: var(--fb-surface, #ffffff);
+      min-height: 100%;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    
+    button, input, textarea, select {
+      font-family: inherit;
+      font-size: inherit;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      margin: 0;
+      line-height: 1.2;
+    }
+    
+    p {
+      margin: 0;
+    }
+  
+    
+    
+    /* ───────────────────────────────────────────────────────────────
+       Theme tokens.
+
+       Every colour in the component catalog resolves through one of
+       these (see templates/catalog/*.ts — var(--fb-accent, #3b82f6)
+       and friends). Redefining them in the page's customCss re-themes
+       the ENTIRE catalog in one block:
+
+         :root {
+           --fb-accent: #f5b642;
+           --fb-surface: #16150f;
+           --fb-text: #f5f2ea;
+         }
+
+       The values below are the historical hard-coded defaults, so a
+       page that defines no theme renders exactly as it always has.
+       Each catalog usage also carries the same literal as its var()
+       fallback, so components stay correct even if this block is
+       stripped (e.g. an exported fragment).
+       ─────────────────────────────────────────────────────────────── */
+    :root {
+      --fb-accent: #3b82f6;
+      --fb-accent-contrast: #ffffff;
+
+      --fb-surface: #ffffff;
+      --fb-surface-muted: #f8fafc;
+      --fb-surface-inverse: #0f172a;
+
+      --fb-text: #374151;
+      --fb-text-strong: #1f2937;
+      --fb-text-muted: #6b7280;
+      --fb-text-subtle: #9ca3af;
+      --fb-text-inverse: #e6edf3;
+
+      --fb-border: #e5e7eb;
+      --fb-success: #10b981;
+      --fb-warning: #f59e0b;
+      --fb-danger: #ef4444;
+      --fb-shadow: rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      background-color: var(--fb-surface, #ffffff);
+      min-height: 100%;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    
+    button, input, textarea, select {
+      font-family: inherit;
+      font-size: inherit;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      margin: 0;
+      line-height: 1.2;
+    }
+    
+    p {
+      margin: 0;
+    }
+  
+    
+    
+    /* ───────────────────────────────────────────────────────────────
+       Theme tokens.
+
+       Every colour in the component catalog resolves through one of
+       these (see templates/catalog/*.ts — var(--fb-accent, #3b82f6)
+       and friends). Redefining them in the page's customCss re-themes
+       the ENTIRE catalog in one block:
+
+         :root {
+           --fb-accent: #f5b642;
+           --fb-surface: #16150f;
+           --fb-text: #f5f2ea;
+         }
+
+       The values below are the historical hard-coded defaults, so a
+       page that defines no theme renders exactly as it always has.
+       Each catalog usage also carries the same literal as its var()
+       fallback, so components stay correct even if this block is
+       stripped (e.g. an exported fragment).
+       ─────────────────────────────────────────────────────────────── */
+    :root {
+      --fb-accent: #3b82f6;
+      --fb-accent-contrast: #ffffff;
+
+      --fb-surface: #ffffff;
+      --fb-surface-muted: #f8fafc;
+      --fb-surface-inverse: #0f172a;
+
+      --fb-text: #374151;
+      --fb-text-strong: #1f2937;
+      --fb-text-muted: #6b7280;
+      --fb-text-subtle: #9ca3af;
+      --fb-text-inverse: #e6edf3;
+
+      --fb-border: #e5e7eb;
+      --fb-success: #10b981;
+      --fb-warning: #f59e0b;
+      --fb-danger: #ef4444;
+      --fb-shadow: rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      background-color: var(--fb-surface, #ffffff);
+      min-height: 100%;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    
+    button, input, textarea, select {
+      font-family: inherit;
+      font-size: inherit;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      margin: 0;
+      line-height: 1.2;
+    }
+    
+    p {
+      margin: 0;
+    }
+  
+    
+    
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+:root{--bg:#080A10;--bg2:#10141D;--bg3:#151A26;--violet:#7957FF;--violet-hi:#8D70FF;--lilac:#B7A6FF;--cyan:#55D6E8;--text:#F5F6FA;--soft:#C9CED8;--muted:#969EAD;--line:#252B38;--line2:#323A4B;--display:'Space Grotesk',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;--wrap:1200px;--pad:clamp(20px,5vw,48px);--band:clamp(76px,9vw,128px);--r:18px;--ease:cubic-bezier(.16,1,.3,1)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:#080A10}
+html,body{margin:0;padding:0;background:#080A10;color:#F5F6FA}
+.cl,.cl *{box-sizing:border-box;margin:0;padding:0}
+.cl{font-family:var(--body);background:var(--bg);color:var(--text);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;min-height:100vh}
+.cl a{color:inherit;text-decoration:none}
+.cl img{display:block;max-width:100%;height:auto}
+.cl ul,.cl ol{list-style:none}
+.cl button{font-family:inherit}
+.cl ::selection{background:var(--violet);color:#fff}
+.cl :focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:8px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad);position:relative}
+.band{padding-top:var(--band);padding-bottom:var(--band);position:relative}
+.band--alt{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.eyebrow{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan);flex:none}
+.h1{font-family:var(--display);font-weight:600;font-size:clamp(2.7rem,6.6vw,5.6rem);line-height:.98;letter-spacing:-.035em;text-transform:uppercase;color:var(--text)}
+.h1--page{font-size:clamp(2.4rem,5.4vw,4.4rem);text-transform:none;line-height:1.02;max-width:16ch}
+.h2{font-family:var(--display);font-weight:600;font-size:clamp(2rem,4.2vw,3.35rem);line-height:1.05;letter-spacing:-.03em;color:var(--text)}
+.h3{font-family:var(--display);font-weight:600;font-size:1.22rem;line-height:1.25;letter-spacing:-.015em;color:var(--text)}
+.grad{background:linear-gradient(100deg,#F5F6FA 0%,var(--lilac) 45%,var(--cyan) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:clamp(1.03rem,1.45vw,1.17rem);color:var(--muted);max-width:60ch;line-height:1.7}
+.shead{display:flex;flex-direction:column;align-items:flex-start;gap:18px;max-width:780px;margin-bottom:clamp(40px,5vw,64px)}
+.shead--c{align-items:center;text-align:center;margin-left:auto;margin-right:auto}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:14px 26px;border-radius:999px;font-family:var(--body);font-weight:600;font-size:15px;line-height:1.2;border:1px solid transparent;cursor:pointer;transition:transform .45s var(--ease),background-color .25s,box-shadow .45s,border-color .25s,color .25s;white-space:nowrap}
+.btn--pri{background:var(--violet);color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 12px 32px -12px rgba(121,87,255,.85)}
+.btn--pri:hover{background:var(--violet-hi);transform:translateY(-2px);box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 20px 44px -14px rgba(121,87,255,1)}
+.btn--ghost{background:rgba(255,255,255,.03);border-color:var(--line2);color:var(--text)}
+.btn--ghost:hover{border-color:var(--cyan);color:var(--cyan);transform:translateY(-2px)}
+.arr{display:inline-block;transition:transform .35s var(--ease)}
+.btn:hover .arr,.tlink:hover .arr{transform:translateX(4px)}
+.tlink{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;color:var(--text);transition:color .25s}
+.tlink:hover{color:var(--cyan)}
+/* routing */
+.cl.routed .view{display:none}
+.cl.routed .view.on{display:block;animation:viewIn .7s var(--ease) both}
+@keyframes viewIn{from{opacity:0;transform:translateY(14px)}}
+.cl.js .rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.cl .rv.in{opacity:1;transform:none}
+/* nav */
+.nav{position:sticky;top:0;z-index:90;border-bottom:1px solid transparent;transition:background .35s,border-color .35s,backdrop-filter .35s}
+.nav.scrolled,.nav.open{background:rgba(8,10,16,.72);-webkit-backdrop-filter:blur(16px) saturate(140%);backdrop-filter:blur(16px) saturate(140%);border-bottom-color:var(--line)}
+.nav-in{max-width:var(--wrap);margin:0 auto;padding:14px var(--pad);display:flex;align-items:center;gap:20px}
+.logo{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:1rem;letter-spacing:.12em;color:var(--text)}
+.logo-mark{display:inline-flex;width:28px;height:28px;flex:none}
+.logo-mark svg{width:28px;height:28px}
+.logo-labs{font-weight:400;color:var(--muted);margin-left:-4px}
+.nav-links{position:relative;display:flex;gap:2px;margin:0 auto;padding:4px;border:1px solid var(--line);border-radius:999px;background:rgba(16,20,29,.55)}
+.nav-links a{position:relative;z-index:1;padding:8px 16px;border-radius:999px;font-size:14px;font-weight:500;color:var(--muted);transition:color .25s}
+.nav-links a:hover,.nav-links a.active{color:var(--text)}
+.nav-ind{position:absolute;z-index:0;top:4px;bottom:4px;left:0;width:0;opacity:0;border-radius:999px;background:rgba(121,87,255,.16);border:1px solid rgba(121,87,255,.42);transition:transform .5s var(--ease),width .5s var(--ease),opacity .3s}
+.nav .btn{min-height:42px;padding:10px 20px;font-size:14px}
+.burger{display:none;position:relative;width:44px;height:44px;flex:none;border-radius:12px;border:1px solid var(--line2);background:rgba(255,255,255,.03);cursor:pointer}
+.burger span{position:absolute;left:13px;right:13px;height:1.5px;border-radius:2px;background:var(--text);transition:transform .4s var(--ease),opacity .2s}
+.burger span:nth-child(1){top:16px}.burger span:nth-child(2){top:21px}.burger span:nth-child(3){top:26px}
+.nav.open .burger span:nth-child(1){transform:translateY(5px) rotate(45deg)}
+.nav.open .burger span:nth-child(2){opacity:0}
+.nav.open .burger span:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
+@media(max-width:940px){.burger{display:block}.nav-cta{margin-left:auto}.nav-links{position:fixed;top:74px;left:12px;right:12px;margin:0;flex-direction:column;gap:2px;padding:10px;border-radius:20px;background:rgba(12,15,22,.97);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:0 30px 80px -30px rgba(0,0,0,.8);opacity:0;transform:translateY(-10px);pointer-events:none;transition:opacity .3s,transform .45s var(--ease)}.nav.open .nav-links{opacity:1;transform:none;pointer-events:auto}.nav-links a{padding:14px 16px;font-size:17px;border-radius:12px}.nav-links a.active{background:rgba(121,87,255,.14)}.nav-ind{display:none}}
+@media(max-width:440px){.nav-cta{display:none}.burger{margin-left:auto}}
+/* hero */
+.hero{position:relative;overflow:hidden;padding:clamp(48px,7vw,104px) 0 clamp(72px,9vw,128px)}
+.hero-bg{position:absolute;inset:0;pointer-events:none;z-index:0}
+.hero-bg::before{content:"";position:absolute;inset:-20%;background:radial-gradient(38% 42% at 74% 34%,rgba(121,87,255,.26),transparent 70%),radial-gradient(30% 34% at 92% 72%,rgba(85,214,232,.12),transparent 70%),radial-gradient(30% 30% at 8% 10%,rgba(121,87,255,.08),transparent 70%);animation:drift 20s ease-in-out infinite alternate}
+.hero-bg::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:72px 72px;-webkit-mask-image:radial-gradient(70% 65% at 60% 40%,#000,transparent 80%);mask-image:radial-gradient(70% 65% at 60% 40%,#000,transparent 80%)}
+@keyframes drift{to{transform:translate3d(-4%,3%,0) scale(1.08)}}
+.hero-in{position:relative;z-index:1;display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(36px,5vw,72px);align-items:center}
+.hero-copy{display:flex;flex-direction:column;align-items:flex-start;gap:26px}
+.h1 .ln{display:block;overflow:hidden;padding-bottom:.06em}
+.h1 .ln>span{display:inline-block;animation:rise 1.1s var(--ease) both}
+.h1 .ln:nth-child(2)>span{animation-delay:.09s}
+.h1 .ln:nth-child(3)>span{animation-delay:.18s}
+@keyframes rise{from{transform:translateY(105%)}}
+.hero-copy .lead,.hero-copy .ctas,.hero-meta{animation:fadeUp 1s var(--ease) .35s both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}}
+.hero-meta{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;font-size:13px;padding:6px 12px;border-radius:999px;border:1px solid var(--line2);color:var(--soft);background:rgba(255,255,255,.02)}
+/* viz */
+.viz{position:relative;border-radius:24px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(21,26,38,.78),rgba(12,15,22,.62));-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);padding:16px 16px 18px;box-shadow:0 60px 120px -60px rgba(121,87,255,.65),inset 0 1px 0 rgba(255,255,255,.05);animation:fadeUp 1.2s var(--ease) .25s both}
+.viz-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:4px 6px 12px;border-bottom:1px solid var(--line)}
+.viz-title{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.viz-live{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan)}
+.viz-live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan);animation:blink 2.2s ease-in-out infinite}
+@keyframes blink{50%{opacity:.3}}
+.viz-art svg{width:100%;height:auto;display:block}
+.viz-links path{stroke-dasharray:3 6;animation:dash 1.4s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-9}}
+.viz-art .pulse{transform-box:fill-box;transform-origin:center;animation:pulse 3.2s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.18);opacity:.65}}
+.viz-art .ring{transform-box:fill-box;transform-origin:center;animation:ring 3.2s var(--ease) infinite}
+@keyframes ring{from{transform:scale(.8);opacity:1}to{transform:scale(2.3);opacity:0}}
+.viz-legend{display:grid;grid-template-columns:repeat(4,1fr);text-align:center;gap:6px;border-top:1px solid var(--line);padding-top:14px}
+.viz-legend li{display:flex;flex-direction:column;gap:3px}
+.viz-k{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--text)}
+.viz-v{font-size:12px;color:var(--muted);line-height:1.35}
+.viz-legend li:last-child .viz-k{color:var(--cyan)}
+/* cards */
+.card{position:relative;overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.008));border:1px solid var(--line);border-radius:var(--r);padding:clamp(24px,2.6vw,32px);display:flex;flex-direction:column;gap:14px;transition:transform .55s var(--ease),border-color .35s,background .35s}
+.card:hover{transform:translateY(-4px);border-color:#3B3566}
+.card p{color:var(--muted);font-size:.97rem}
+.card>*{position:relative;z-index:1}
+.spot::before{content:"";position:absolute;inset:0;z-index:0;background:radial-gradient(380px circle at var(--mx,50%) var(--my,-30%),rgba(121,87,255,.15),transparent 60%);opacity:0;transition:opacity .4s;pointer-events:none}
+.spot:hover::before{opacity:1}
+.ico{width:46px;height:46px;flex:none;border-radius:13px;display:grid;place-items:center;border:1px solid var(--line2);background:rgba(121,87,255,.08);color:var(--lilac);transition:color .35s,border-color .35s,transform .5s var(--ease)}
+.ico svg{width:22px;height:22px}
+.card:hover .ico{color:var(--cyan);border-color:rgba(85,214,232,.45);transform:rotate(-6deg) scale(1.04)}
+.ticks{display:flex;flex-direction:column;gap:8px}
+.ticks li{position:relative;padding-left:20px;font-size:.92rem;color:var(--soft);line-height:1.5}
+.ticks li::before{content:"";position:absolute;left:0;top:.68em;width:9px;height:1.5px;background:var(--cyan)}
+.g2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.more{display:flex;justify-content:center;margin-top:clamp(32px,4vw,48px)}
+/* split */
+.split{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(36px,6vw,96px);align-items:start}
+.split-head{position:sticky;top:110px;display:flex;flex-direction:column;align-items:flex-start;gap:20px}
+.stack{display:flex;flex-direction:column;gap:16px}
+.vcard{flex-direction:row;align-items:flex-start;gap:20px}
+.vcard-body{display:flex;flex-direction:column;gap:8px}
+/* industries */
+.ind{position:relative;display:flex;flex-direction:column;border-radius:24px;overflow:hidden;border:1px solid var(--line);background:var(--bg);transition:border-color .4s,transform .7s var(--ease)}
+.ind:hover{border-color:#3B3566;transform:translateY(-4px)}
+.ind-media{position:relative;aspect-ratio:16/10;overflow:hidden}
+.ind-media img{width:100%;height:100%;object-fit:cover;filter:saturate(.75) brightness(.78) contrast(1.05);transition:transform 1.4s var(--ease),filter .6s}
+.ind-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,10,16,0) 35%,var(--bg) 100%),linear-gradient(120deg,rgba(121,87,255,.18),transparent 50%)}
+.ind:hover .ind-media img{transform:scale(1.05);filter:saturate(.9) brightness(.88)}
+.ind-tag{position:absolute;z-index:2;top:18px;left:18px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;border-radius:999px;color:var(--text);background:rgba(8,10,16,.55);border:1px solid rgba(255,255,255,.14);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.ind-body{display:flex;flex-direction:column;align-items:flex-start;gap:18px;flex:1;padding:4px clamp(24px,3vw,36px) clamp(26px,3vw,36px)}
+.ind-body .h3{font-size:clamp(1.5rem,2.4vw,1.9rem)}
+.ind-body>p{color:var(--muted)}
+.ind-body .tlink{margin-top:auto}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+/* timeline */
+.tl{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(18px,2.6vw,36px)}
+.tl-track{position:absolute;left:23px;right:0;top:23px;height:1px;background:var(--line)}
+.tl-fill{position:absolute;inset:0;background:linear-gradient(90deg,var(--violet),var(--cyan));transform-origin:left;transform:scaleX(0);transition:transform 2s var(--ease) .2s}
+.tl.in .tl-fill{transform:scaleX(1)}
+.tl-step{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.tl-dot{position:relative;z-index:1;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;margin-bottom:10px;background:var(--bg);border:1px solid var(--line2);font-family:var(--mono);font-size:13px;color:var(--muted);transition:border-color .6s,color .6s,box-shadow .6s}
+.tl.in .tl-dot{border-color:var(--violet);color:var(--text);box-shadow:0 0 0 6px rgba(121,87,255,.1),0 0 26px rgba(121,87,255,.45)}
+.tl-step:nth-child(3) .tl-dot{transition-delay:.5s}.tl-step:nth-child(4) .tl-dot{transition-delay:1s}.tl-step:nth-child(5) .tl-dot{transition-delay:1.5s}
+.tl-step:nth-child(5) .tl-dot{}
+.tl.in .tl-step:nth-child(5) .tl-dot{border-color:var(--cyan);box-shadow:0 0 0 6px rgba(85,214,232,.1),0 0 26px rgba(85,214,232,.45)}
+.tl-k{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan)}
+.tl-step p{color:var(--muted);font-size:.96rem}
+/* why */
+.why{overflow:hidden}
+.why::before,.why::after{content:"";position:absolute;pointer-events:none;border-radius:50%}
+.why::before{width:780px;height:780px;left:-260px;top:-120px;background:radial-gradient(circle,rgba(121,87,255,.14),transparent 62%);animation:orb 24s ease-in-out infinite alternate}
+.why::after{width:620px;height:620px;right:-200px;bottom:-200px;background:radial-gradient(circle,rgba(85,214,232,.09),transparent 62%);animation:orb 30s ease-in-out infinite alternate-reverse}
+@keyframes orb{to{transform:translate(18%,-10%)}}
+.diffs{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:rgba(8,10,16,.45);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.diff{display:flex;flex-direction:column;gap:10px;padding:clamp(22px,2.6vw,32px);border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:background .4s}
+.diff:hover{background:rgba(121,87,255,.07)}
+.diff .h3{font-size:1.1rem;display:flex;align-items:center;gap:12px}
+.diff .h3::before{content:"";width:14px;height:1.5px;background:var(--cyan);flex:none;transition:width .4s var(--ease)}
+.diff:hover .h3::before{width:24px}
+.diff p{color:var(--muted);font-size:.95rem}
+/* cta */
+.cta-box{position:relative;isolation:isolate;overflow:hidden;border-radius:30px;border:1px solid #2F2A55;padding:clamp(56px,8vw,112px) var(--pad);display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px;background:radial-gradient(60% 80% at 50% 0%,rgba(121,87,255,.36),transparent 70%),radial-gradient(50% 60% at 50% 115%,rgba(85,214,232,.2),transparent 70%),var(--bg2)}
+.cta-orbits{position:absolute;inset:0;z-index:-1;display:grid;place-items:center;pointer-events:none}
+.cta-orbits svg{width:min(980px,150%);height:auto;animation:spin 80s linear infinite;opacity:.75}
+@keyframes spin{to{transform:rotate(360deg)}}
+.cta-box .h2{max-width:15ch;font-size:clamp(2.2rem,5vw,4rem)}
+.cta-box .lead{max-width:48ch}
+.cta-box .ctas{justify-content:center;margin-top:6px}
+.cta-note{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+/* page hero */
+.phero{position:relative;overflow:hidden;padding:clamp(64px,9vw,128px) 0 clamp(52px,6vw,88px);border-bottom:1px solid var(--line)}
+.phero::before{content:"";position:absolute;width:900px;height:600px;right:-200px;top:-260px;background:radial-gradient(closest-side,rgba(121,87,255,.22),transparent);pointer-events:none;animation:drift 20s ease-in-out infinite alternate}
+.phero .wrap{display:flex;flex-direction:column;align-items:flex-start;gap:24px}
+/* services page */
+.srows{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.srow{display:grid;grid-template-columns:1fr 1.35fr;gap:clamp(24px,5vw,72px);padding:clamp(40px,5vw,64px) 0;border-bottom:1px solid var(--line)}
+.srow-main{display:flex;flex-direction:column;align-items:flex-start;gap:18px}
+.srow-main .h3{font-size:clamp(1.5rem,2.6vw,2.1rem)}
+.srow-main>p{color:var(--muted)}
+.srow-k{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--lilac)}
+.srow-detail{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.dblk{display:flex;flex-direction:column;gap:10px;padding:22px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.02)}
+.dblk--wide{grid-column:1/-1}
+.dk{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan)}
+.dblk p{color:var(--soft);font-size:.95rem}
+/* industries page */
+.ipanel{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(32px,5vw,80px);align-items:center}
+.ipanel--rev .ipanel-media{order:2}
+.ipanel-media{position:relative;border-radius:24px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/5}
+.ipanel-media img{width:100%;height:100%;object-fit:cover;filter:saturate(.8) brightness(.82)}
+.ipanel-media::after{content:"";position:absolute;inset:0;background:linear-gradient(200deg,rgba(121,87,255,.2),transparent 45%),linear-gradient(0deg,rgba(8,10,16,.55),transparent 40%)}
+.ipanel-body{display:flex;flex-direction:column;align-items:flex-start;gap:22px}
+.helps{display:flex;flex-direction:column;width:100%;border-top:1px solid var(--line)}
+.help{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:18px;padding:18px 0;border-bottom:1px solid var(--line);transition:padding .4s var(--ease)}
+.help:hover{padding-left:8px}
+.help .h3{font-size:1.02rem}
+.help p{color:var(--muted);font-size:.95rem}
+.locs{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;padding:clamp(28px,4vw,44px);border:1px solid var(--line);border-radius:var(--r);background:var(--bg2)}
+/* about */
+.story-body{display:flex;flex-direction:column;gap:20px;font-size:clamp(1.05rem,1.5vw,1.2rem);color:var(--soft);line-height:1.75}
+.ph{border-style:dashed;border-color:var(--line2);background:transparent}
+.ph-tag{align-self:flex-start;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;padding:4px 10px;border-radius:999px;border:1px dashed var(--lilac);color:var(--lilac)}
+.mvp .card{gap:18px}
+.statement{font-family:var(--display);font-size:clamp(1.15rem,1.8vw,1.4rem);line-height:1.4;letter-spacing:-.01em;color:var(--text)}
+.mvp .card .statement{color:var(--text)}
+.bigq{font-family:var(--display);font-weight:500;font-size:clamp(1.6rem,3.6vw,2.8rem);line-height:1.2;letter-spacing:-.025em;max-width:24ch;text-align:center;margin:0 auto}
+.commit{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 32px}
+.commit li{position:relative;padding:16px 0 16px 34px;border-bottom:1px solid var(--line);color:var(--soft)}
+.commit li::before{content:"";position:absolute;left:4px;top:1.35em;width:12px;height:7px;border-left:1.6px solid var(--cyan);border-bottom:1.6px solid var(--cyan);transform:rotate(-45deg)}
+/* contact */
+.contact{display:grid;grid-template-columns:.86fr 1.14fr;gap:clamp(36px,5vw,80px);align-items:start}
+.contact-side{display:flex;flex-direction:column;align-items:flex-start;gap:24px;position:sticky;top:110px}
+.wa-card{display:flex;align-items:center;gap:16px;width:100%;padding:18px 20px;border-radius:18px;border:1px solid rgba(85,214,232,.3);background:linear-gradient(120deg,rgba(85,214,232,.08),rgba(121,87,255,.06));transition:border-color .3s,transform .5s var(--ease)}
+.wa-card:hover{border-color:var(--cyan);transform:translateY(-2px)}
+.wa-card .ico{color:var(--cyan);border-color:rgba(85,214,232,.4);background:rgba(85,214,232,.08)}
+.wa-txt{display:flex;flex-direction:column;gap:2px}
+.wa-t{font-family:var(--display);font-weight:600;font-size:1.05rem}
+.wa-s{font-size:.9rem;color:var(--muted)}
+.nexts{display:flex;flex-direction:column;width:100%;border-top:1px solid var(--line)}
+.nexts li{display:grid;grid-template-columns:34px 1fr;gap:12px;padding:14px 0;border-bottom:1px solid var(--line);color:var(--soft);font-size:.95rem}
+.nexts .n{font-family:var(--mono);font-size:12px;color:var(--cyan);padding-top:2px}
+.side-meta{display:flex;flex-direction:column;gap:6px;font-size:.92rem;color:var(--muted)}
+.side-meta a{color:var(--text);border-bottom:1px solid var(--line2)}
+.form-card{position:relative;border-radius:24px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(21,26,38,.75),rgba(12,15,22,.55));padding:clamp(24px,3.6vw,44px);box-shadow:0 60px 120px -70px rgba(121,87,255,.6);scroll-margin-top:100px}
+.form-head{display:flex;flex-direction:column;gap:8px;margin-bottom:26px}
+.form-head p{color:var(--muted);font-size:.95rem}
+.lead-form{display:grid;grid-template-columns:1fr 1fr;gap:20px 16px}
+.field-group{display:flex;flex-direction:column;gap:8px;min-width:0}
+.field-group.full{grid-column:1/-1}
+.field-label{font-size:13.5px;font-weight:600;color:#D7DBE3}
+.field-input,.field-select{width:100%;padding:14px 16px;font-size:16px;font-family:var(--body);color:var(--text);background:rgba(255,255,255,.035);border:1px solid var(--line2);border-radius:12px;outline:none;transition:border-color .15s ease,box-shadow .15s ease,background .15s ease;box-sizing:border-box}
+.field-input:hover,.field-select:hover{border-color:#46506A}
+.field-area{min-height:140px;resize:vertical;line-height:1.55}
+.field-select{padding-right:44px;appearance:none;-webkit-appearance:none;-moz-appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2355D6E8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");background-repeat:no-repeat;background-position:right 16px center;cursor:pointer}
+.field-select option{background:#10141D;color:#F5F6FA}
+.cl input:focus,.cl textarea:focus,.cl select:focus{border-color:var(--violet);background:rgba(121,87,255,.06);box-shadow:0 0 0 4px rgba(121,87,255,.22)}
+.cl input::placeholder,.cl textarea::placeholder{color:rgba(150,158,173,.65)}
+.field-group.has-error .field-input,.field-group.has-error .field-select{border-color:#F87171;box-shadow:0 0 0 4px rgba(248,113,113,.14)}
+.field-group.has-error .field-label{color:#FCA5A5}
+.hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
+.form-foot{grid-column:1/-1;display:flex;flex-direction:column;gap:14px;margin-top:6px}
+.form-submit{width:100%;min-height:56px;font-size:16px}
+.btn.is-loading{pointer-events:none;opacity:.88}
+.btn.is-loading::before{content:"";width:16px;height:16px;border-radius:50%;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;animation:spin .8s linear infinite}
+.form-legal{font-size:12.5px;color:var(--muted);text-align:center}
+.form-msg{font-size:.92rem;line-height:1.55;padding:12px 14px;border-radius:12px}
+.form-msg--err{color:#FECACA;background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.4)}
+.form-msg[hidden]{display:none}
+.form-ok{display:none;flex-direction:column;align-items:flex-start;gap:18px;outline:none}
+.form-card.sent .form-head,.form-card.sent .lead-form{display:none}
+.form-card.sent .form-ok{display:flex;animation:viewIn .7s var(--ease) both}
+.ok-ico{width:60px;height:60px;border-radius:50%;display:grid;place-items:center;color:var(--cyan);background:rgba(85,214,232,.1);border:1px solid rgba(85,214,232,.45);box-shadow:0 0 40px -6px rgba(85,214,232,.5)}
+.ok-ico svg{width:26px;height:26px}
+.form-ok p{color:var(--muted)}
+/* legal */
+.legal-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+/* footer */
+.foot{position:relative;overflow:hidden;border-top:1px solid var(--line);background:var(--bg2);padding:clamp(56px,7vw,88px) 0 30px}
+.foot-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:clamp(28px,4vw,56px)}
+.foot-brand{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+.foot-tag{font-family:var(--display);font-size:1.05rem;color:var(--text)}
+.foot-blurb{color:var(--muted);font-size:.94rem;max-width:40ch}
+.foot-col{display:flex;flex-direction:column;align-items:flex-start;gap:11px;font-size:14.5px;color:var(--muted)}
+.foot-col a{transition:color .25s}
+.foot-col a:hover{color:var(--text)}
+.foot-h{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--text);margin-bottom:4px}
+.foot-social{display:flex;flex-direction:column;gap:12px;margin-top:6px}
+.socials{display:flex;gap:8px}
+.soc{width:40px;height:40px;border-radius:12px;border:1px solid var(--line2);display:grid;place-items:center;color:var(--muted);transition:color .25s,border-color .25s,transform .4s var(--ease)}
+.soc:hover{color:var(--cyan);border-color:var(--cyan);transform:translateY(-2px)}
+.soc svg{width:18px;height:18px}
+.foot-word{font-family:var(--display);font-weight:700;font-size:clamp(3rem,10.5vw,9.5rem);line-height:.9;letter-spacing:-.04em;text-align:center;white-space:nowrap;margin-top:clamp(44px,6vw,80px);background:linear-gradient(180deg,rgba(245,246,250,.1),rgba(245,246,250,0) 85%);-webkit-background-clip:text;background-clip:text;color:transparent;user-select:none}
+.foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+.foot-legal{display:flex;gap:20px}
+.foot-legal a:hover{color:var(--text)}
+/* responsive */
+@media(max-width:1024px){.g4{grid-template-columns:repeat(2,1fr)}.foot-top{grid-template-columns:1fr 1fr}.foot-brand{grid-column:1/-1}}
+@media(max-width:980px){.hero-in{grid-template-columns:1fr}.viz{max-width:620px}.split{grid-template-columns:1fr}.split-head{position:static}.g3{grid-template-columns:repeat(2,1fr)}.srow{grid-template-columns:1fr}.ipanel{grid-template-columns:1fr}.ipanel--rev .ipanel-media{order:0}.ipanel-media{aspect-ratio:16/10}.contact{grid-template-columns:1fr}.contact-side{position:static}}
+@media(max-width:820px){.tl{grid-template-columns:1fr;gap:34px;padding-left:66px}.tl-track{left:23px;right:auto;top:0;bottom:0;width:1px;height:auto}.tl-fill{transform:scaleY(0);transform-origin:top}.tl.in .tl-fill{transform:scaleY(1)}.tl-dot{position:absolute;left:-66px;top:-6px;margin:0}}
+@media(max-width:768px){.g2,.g3,.g4,.diffs,.srow-detail,.legal-grid,.commit{grid-template-columns:1fr}.vcard{flex-direction:column}.help{grid-template-columns:1fr;gap:6px}.lead-form{grid-template-columns:1fr}.lead{max-width:100%}.ctas .btn{flex:1 1 auto}}
+@media(max-width:560px){.viz{padding:12px}.viz-v{display:none}.viz-k{font-size:9px;letter-spacing:.04em}.foot-top{grid-template-columns:1fr}.foot-bottom{flex-direction:column}.btn{white-space:normal;text-align:center}}
+@media(prefers-reduced-motion:reduce){.cl *,.cl *::before,.cl *::after{animation:none!important;transition:none!important}.cl .rv{opacity:1!important;transform:none!important}.tl-fill{transform:none!important}html{scroll-behavior:auto}}
+
+/* refinements */
+.cl{overflow-x:clip}
+@supports not (overflow:clip){.cl{overflow-x:hidden}.nav{position:fixed;left:0;right:0}.main{padding-top:72px}}
+.hero .h1{font-size:clamp(2.6rem,5.3vw,4.9rem)}
+.foot-social{flex-direction:row}
+.viz-art{display:block;margin:6px 0}
+@media(max-width:980px){.hero .h1{font-size:clamp(2.5rem,9vw,4.4rem)}}
+@media(prefers-reduced-motion:reduce){.viz-art svg animateMotion{display:none}}
+
+/* ===== results by the numbers ===== */
+.stats{--s-bg:#090611;--s-card:#160D2B;--s-line:#30213F;--s-violet:#A78BFA;--s-label:#A99DC4;background:var(--s-bg);border-top:1px solid #1A1228;border-bottom:1px solid #1A1228;overflow:hidden;isolation:isolate}
+.stats::before{content:"";position:absolute;z-index:-1;left:50%;top:-38%;width:min(1200px,140%);height:720px;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(139,92,246,.2),transparent 72%);pointer-events:none}
+.stats::after{content:"";position:absolute;z-index:-1;inset:0;background-image:linear-gradient(rgba(167,139,250,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(167,139,250,.045) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(60% 70% at 50% 30%,#000,transparent 78%);mask-image:radial-gradient(60% 70% at 50% 30%,#000,transparent 78%);pointer-events:none}
+.stats-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px 48px;margin-bottom:clamp(40px,5vw,64px)}
+.stats-title{display:flex;flex-direction:column;align-items:flex-start;gap:18px;max-width:640px}
+.stats .eyebrow{color:var(--s-violet);letter-spacing:.2em}
+.stats .eyebrow::before{display:none}
+.stats .h2{font-size:clamp(2.1rem,4.6vw,3.6rem)}
+.stats-lead{color:var(--s-label);max-width:42ch;font-size:clamp(.98rem,1.3vw,1.08rem);line-height:1.7}
+.stat-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(12px,1.4vw,18px)}
+.stat{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;gap:28px;min-height:clamp(200px,17vw,240px);padding:clamp(22px,2.2vw,30px);background:var(--s-card);border:1px solid var(--s-line);border-radius:22px;transition:transform .55s var(--ease),border-color .35s,box-shadow .5s var(--ease)}
+.stat::after{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;background:linear-gradient(180deg,rgba(167,139,250,.07),transparent 45%);pointer-events:none}
+.stat:hover{transform:translateY(-5px);border-color:#5A3F95;box-shadow:0 0 0 1px rgba(167,139,250,.18),0 24px 60px -22px rgba(167,139,250,.55),inset 0 1px 0 rgba(255,255,255,.05)}
+.stat-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.stat-idx{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:#6E5F92}
+.stat-dot{width:6px;height:6px;border-radius:50%;background:var(--s-violet);box-shadow:0 0 10px var(--s-violet);opacity:.55;transition:opacity .35s}
+.stat:hover .stat-dot{opacity:1}
+.stat-body{display:flex;flex-direction:column;gap:12px}
+.stat-num{position:relative;display:block;font-family:var(--display);font-weight:700;font-size:clamp(2.3rem,3.6vw,3.3rem);line-height:1;letter-spacing:-.03em;color:var(--s-violet);font-variant-numeric:tabular-nums;text-shadow:0 0 28px rgba(167,139,250,.45);white-space:nowrap}
+.stat-num::before{content:"";position:absolute;z-index:-1;left:-14%;top:50%;width:120%;height:150%;transform:translateY(-50%);background:radial-gradient(closest-side,rgba(139,92,246,.32),transparent);filter:blur(6px);opacity:.75;transition:opacity .45s,transform .6s var(--ease);pointer-events:none}
+.stat:hover .stat-num::before{opacity:1;transform:translateY(-50%) scale(1.12)}
+.stat-label{font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.14em;line-height:1.5;text-transform:uppercase;color:var(--s-label)}
+/* entrance (uses translate so hover transform stays free) */
+.cl.js .stats .stat.rv{transform:none;opacity:1;transition:transform .55s var(--ease),border-color .35s,box-shadow .5s var(--ease)}
+.cl.js .stats .stat.rv:not(.in){opacity:0}
+.cl.js .stats .stat.rv.in{animation:statIn .95s var(--ease) both}
+.stat-grid .stat:nth-child(2){animation-delay:.08s}
+.stat-grid .stat:nth-child(3){animation-delay:.16s}
+.stat-grid .stat:nth-child(4){animation-delay:.24s}
+.stat-grid .stat:nth-child(5){animation-delay:.32s}
+@keyframes statIn{from{opacity:0;translate:0 28px}to{opacity:1;translate:0 0}}
+.stats-js{display:none}
+@media(max-width:1080px){.stat-grid{grid-template-columns:repeat(6,minmax(0,1fr))}.stat{grid-column:span 2}.stat-grid .stat:nth-child(4){grid-column:2/4}.stat-grid .stat:nth-child(5){grid-column:4/6}}
+@media(max-width:640px){.stat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.stat,.stat-grid .stat:nth-child(4){grid-column:span 2}.stat-grid .stat:nth-child(5){grid-column:2/4}.stat{min-height:180px;padding:20px;gap:20px;border-radius:20px}.stat-num{font-size:clamp(1.9rem,8.5vw,2.4rem)}.stat-label{font-size:10.5px;letter-spacing:.1em}}
+@media(prefers-reduced-motion:reduce){.cl.js .stats .stat.rv,.cl.js .stats .stat.rv:not(.in){opacity:1!important;animation:none!important;translate:none!important}}
+
+/* ===== stats: centred layout + scroll-triggered count-up ===== */
+@property --n{syntax:'<integer>';inherits:false;initial-value:0}
+@property --ni{syntax:'<integer>';inherits:false;initial-value:0}
+@property --nd{syntax:'<integer>';inherits:false;initial-value:0}
+.stats{--dur:2.2s;--cnt-ease:cubic-bezier(.45,.05,.2,1)}
+/* centring */
+.stat-body{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;width:100%;text-align:center}
+.stat-num{text-align:center;max-width:100%}
+.stat-label{display:flex;align-items:flex-start;justify-content:center;text-align:center;min-height:3em;max-width:20ch}
+/* stagger index */
+.stat-grid .stat:nth-child(1){--k:0}.stat-grid .stat:nth-child(2){--k:1}.stat-grid .stat:nth-child(3){--k:2}.stat-grid .stat:nth-child(4){--k:3}.stat-grid .stat:nth-child(5){--k:4}
+.stat{--dl:calc(.4s + var(--k,0) * .14s)}
+/* card entrance (fade + rise, staggered) then a soft violet glow when the count lands */
+.cl.js .stats .stat.rv.in{animation:statIn .95s var(--ease) both,statGlow 1.8s ease-out;animation-delay:calc(var(--k,0) * .09s),calc(var(--dl) + var(--dur))}
+@keyframes statGlow{0%{border-color:var(--s-line);box-shadow:none}28%{border-color:#5A3F95;box-shadow:0 0 0 1px rgba(167,139,250,.2),0 0 44px -12px rgba(139,92,246,.6)}100%{border-color:var(--s-line);box-shadow:none}}
+/* animated counter layer: the real text stays in the DOM and takes over at the final frame */
+.stat-num::after{position:absolute;inset:0;text-align:center;white-space:nowrap;color:var(--s-violet);text-shadow:0 0 28px rgba(167,139,250,.45);visibility:hidden;pointer-events:none;counter-reset:n var(--n);content:var(--pre) counter(n) var(--suf)}
+.sn-rev,.sn-spend{--pre:"+₦";--suf:"M"}
+.sn-creative{--pre:"+";--suf:""}
+.sn-clients{--pre:"";--suf:""}
+.sn-roas::after{--ni:calc((var(--n) - 4.5) / 10);--nd:calc(var(--n) - var(--ni) * 10);counter-reset:ni var(--ni) nd var(--nd);content:counter(ni) "." counter(nd) "x"}
+.cl .stats .stat.in .stat-num{animation:numHide calc(var(--dl) + var(--dur)) linear,numGlow 1.6s ease-out calc(var(--dl) + var(--dur))}
+.cl .stats .stat.in .stat-num::after{animation:cnt-roas var(--dur) var(--cnt-ease) var(--dl) backwards}
+.cl .stats .stat.in .sn-rev::after{animation-name:cnt-rev}
+.cl .stats .stat.in .sn-spend::after{animation-name:cnt-spend}
+.cl .stats .stat.in .sn-creative::after{animation-name:cnt-creative}
+.cl .stats .stat.in .sn-clients::after{animation-name:cnt-clients}
+@keyframes numHide{from,to{color:transparent;text-shadow:none}}
+@keyframes numGlow{0%{text-shadow:0 0 16px rgba(196,181,253,.9),0 0 44px rgba(139,92,246,.65)}100%{text-shadow:0 0 28px rgba(167,139,250,.45)}}
+@keyframes cnt-roas{from{--n:0;visibility:visible}to{--n:41;visibility:visible}}
+@keyframes cnt-rev{from{--n:0;visibility:visible}to{--n:10;visibility:visible}}
+@keyframes cnt-spend{from{--n:0;visibility:visible}to{--n:3;visibility:visible}}
+@keyframes cnt-creative{from{--n:0;visibility:visible}to{--n:50;visibility:visible}}
+@keyframes cnt-clients{from{--n:0;visibility:visible}to{--n:5;visibility:visible}}
+@media(prefers-reduced-motion:reduce){.cl .stats .stat-num,.cl .stats .stat-num::after,.cl.js .stats .stat.rv.in{animation:none!important}.cl .stats .stat-num::after{visibility:hidden!important}}
+
+/* ===== performance pass: smoother scrolling ===== */
+/* 1. Backdrop blurs re-render everything behind them on every scrolled frame. Swap them for near-opaque solid fills. */
+.nav{transition:background .3s,border-color .3s}
+.nav.scrolled,.nav.open{background:rgba(8,10,16,.94);-webkit-backdrop-filter:none;backdrop-filter:none}
+@media(max-width:940px){.nav-links{-webkit-backdrop-filter:none;backdrop-filter:none;background:#0C0F16}}
+.viz{-webkit-backdrop-filter:none;backdrop-filter:none;background:linear-gradient(180deg,#141925,#0D1018);box-shadow:0 40px 90px -50px rgba(121,87,255,.55),inset 0 1px 0 rgba(255,255,255,.05)}
+.diffs{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(8,10,16,.62)}
+.ind-tag{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(8,10,16,.8)}
+/* 2. Live blur filters on the stat glows: the radial gradient is already soft */
+.stat-num::before{filter:none}
+/* 3. Ambient motion runs on the GPU compositor (transform only, own layer) */
+.hero-bg::before,.phero::before,.why::before,.why::after,.cta-orbits svg{will-change:transform;backface-visibility:hidden}
+.hero-bg::before{inset:-10%}
+/* 4. Hero diagram: drop the paint-heavy per-frame loops, keep the travelling dots, centre pulse and conversion ring */
+.viz-links path{animation:none}
+.viz-art g .pulse{animation:none}
+.viz-art{contain:layout paint}
+/* 5. Skip rendering of sections far off-screen until they approach the viewport */
+.view .band,.foot{content-visibility:auto;contain-intrinsic-size:auto 900px}
+.card,.stat,.ind{contain:layout paint}
+  </style>
+</head>
+<body>
+  <div class="cl">
+<div class="cl">
+<div class="cl">
+<div class="cl">
+<div class="cl">
+<nav class="nav" id="site-nav" aria-label="Main">
+<div class="nav-in">
+<a href="#/" class="logo" aria-label="Connell Labs home">
+<span class="logo-mark" aria-hidden="true">
+<svg viewBox="0 0 32 32" fill="none" width="28" height="28">
+<defs>
+<lineargradient id="clm" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+<stop stop-color="#7957FF"></stop>
+<stop offset="1" stop-color="#55D6E8"></stop>
+</lineargradient>
+</defs>
+<rect x="1" y="1" width="30" height="30" rx="9" stroke="url(#clm)" stroke-width="1.5"></rect>
+<path d="M20.5 11.2a6.6 6.6 0 1 0 0 9.6" stroke="#F5F6FA" stroke-width="2" stroke-linecap="round"></path>
+<circle cx="22.4" cy="16" r="2" fill="#55D6E8"></circle>
+</svg>
+</span>
+<span>CONNELL</span>
+<span class="logo-labs">LABS</span>
+</a>
+<div class="nav-links" id="nav-links">
+<span class="nav-ind" aria-hidden="true"></span>
+<a href="#/" data-nav="home">Home</a>
+<a href="#/services" data-nav="services">Services</a>
+<a href="#/industries" data-nav="industries">Industries</a>
+<a href="#/about" data-nav="about">About Us</a>
+<a href="#/contact" data-nav="contact">Contact</a>
+</div>
+<a type="button" href="#/contact" class="btn btn--pri nav-cta">Get Started</a>
+<button type="button" class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+<span>Text</span>
+<span>Text</span>
+<span>Text</span>
+</button>
+</div>
+</nav>
+<main id="main" class="main">
+<div id="view-home" class="view on" data-view="home">
+<section class="hero" id="home-top">
+<div class="hero-bg" aria-hidden="true"></div>
+<div class="wrap hero-in">
+<div class="hero-copy">
+<p class="eyebrow">A GROWTH PARTNER FOR AUTOMOTIVE & REAL ESTATE BRANDS</p>
+<h1 class="h1">
+<span class="ln"><span>We turn</span></span>
+<span class="ln"><span>advertising into</span></span>
+<span class="ln"><span class="grad">customers.</span></span>
+</h1>
+<p class="lead">We help automotive and real estate businesses generate qualified leads, attract serious buyers and renters, and scale their businesses through performance-driven advertising.</p>
+<div class="ctas">
+<a type="button" href="#/contact" class="btn btn--pri">Get Started  →</a>
+<a type="button" href="#/services" class="btn btn--ghost">Explore Our Services</a>
+</div>
+<div class="hero-meta">
+<span class="chip">Automotive</span>
+<span class="chip">Real Estate</span>
+<span class="chip">Abuja · Lagos · Nationwide</span>
+</div>
+</div>
+<div class="viz" role="img" aria-label="Animated diagram: advertising campaigns reach an audience, interested people become qualified leads, and qualified leads become customers.">
+<div class="viz-head">
+<span class="viz-title">Acquisition pipeline</span>
+<span class="viz-live">Running</span>
+</div>
+<div class="viz-art" aria-hidden="true">
+<svg viewBox="0 0 560 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<lineargradient id="vgL" x1="60" y1="0" x2="500" y2="0" gradientUnits="userSpaceOnUse">
+<stop stop-color="#7957FF"></stop>
+<stop offset="1" stop-color="#55D6E8"></stop>
+</lineargradient>
+<radialgradient id="vgC" cx=".5" cy=".5" r=".5">
+<stop stop-color="#55D6E8"></stop>
+<stop offset="1" stop-color="#7957FF"></stop>
+</radialgradient>
+<radialgradient id="vgH" cx=".5" cy=".5" r=".5">
+<stop stop-color="#7957FF" stop-opacity=".35"></stop>
+<stop offset="1" stop-color="#7957FF" stop-opacity="0"></stop>
+</radialgradient>
+</defs>
+<g stroke="#252B38" stroke-dasharray="2 6">
+<line x1="60" y1="24" x2="60" y2="356"></line>
+<line x1="210" y1="24" x2="210" y2="356"></line>
+<line x1="360" y1="24" x2="360" y2="356"></line>
+<line x1="500" y1="24" x2="500" y2="356"></line>
+</g>
+<circle cx="210" cy="190" r="110" fill="url(#vgH)"></circle>
+<g stroke="#323A4B" stroke-width="1.2">
+<path d="M78 90C140 90 150 190 210 190"></path>
+<path d="M78 190H210"></path>
+<path d="M78 290C140 290 150 190 210 190"></path>
+<path d="M210 190C280 190 290 140 346 140"></path>
+<path d="M210 190C280 190 290 240 346 240"></path>
+<path d="M374 140C430 140 440 190 478 190"></path>
+<path d="M374 240C430 240 440 190 478 190"></path>
+</g>
+<g class="viz-links" stroke="url(#vgL)" stroke-width="1.4" opacity=".75">
+<path d="M78 90C140 90 150 190 210 190"></path>
+<path d="M78 190H210"></path>
+<path d="M78 290C140 290 150 190 210 190"></path>
+<path d="M210 190C280 190 290 140 346 140"></path>
+<path d="M210 190C280 190 290 240 346 240"></path>
+<path d="M374 140C430 140 440 190 478 190"></path>
+<path d="M374 240C430 240 440 190 478 190"></path>
+</g>
+<g fill="#969EAD">
+<circle class="pulse" cx="176" cy="118" r="2.2"></circle>
+<circle class="pulse" cx="238" cy="102" r="1.8" style="animation-delay: .6s"></circle>
+<circle class="pulse" cx="252" cy="160" r="2.4" style="animation-delay: 1.1s"></circle>
+<circle class="pulse" cx="168" cy="228" r="2" style="animation-delay: .3s"></circle>
+<circle class="pulse" cx="246" cy="236" r="1.8" style="animation-delay: 1.6s"></circle>
+<circle class="pulse" cx="196" cy="274" r="2.2" style="animation-delay: .9s"></circle>
+<circle class="pulse" cx="226" cy="300" r="1.6" style="animation-delay: 2s"></circle>
+<circle class="pulse" cx="190" cy="86" r="1.6" style="animation-delay: 1.3s"></circle>
+<circle class="pulse" cx="150" cy="170" r="1.6" style="animation-delay: .4s"></circle>
+<circle class="pulse" cx="272" cy="206" r="1.6" style="animation-delay: 2.4s"></circle>
+</g>
+<g>
+<rect x="42" y="76" width="36" height="28" rx="8" fill="#10141D" stroke="#7957FF"></rect>
+<path d="M50 86h14M50 94h20" stroke="#B7A6FF" stroke-width="1.5" stroke-linecap="round"></path>
+<rect x="42" y="176" width="36" height="28" rx="8" fill="#10141D" stroke="#7957FF"></rect>
+<path d="M50 186h20M50 194h12" stroke="#B7A6FF" stroke-width="1.5" stroke-linecap="round"></path>
+<rect x="42" y="276" width="36" height="28" rx="8" fill="#10141D" stroke="#7957FF"></rect>
+<path d="M50 286h16M50 294h18" stroke="#B7A6FF" stroke-width="1.5" stroke-linecap="round"></path>
+</g>
+<circle cx="210" cy="190" r="16" fill="#10141D" stroke="#8D70FF"></circle>
+<circle class="pulse" cx="210" cy="190" r="5" fill="#B7A6FF"></circle>
+<g>
+<circle cx="360" cy="140" r="14" fill="#10141D" stroke="#55D6E8" stroke-opacity=".8"></circle>
+<circle cx="360" cy="136" r="3.5" fill="#55D6E8"></circle>
+<path d="M353 147c1.5-4 12.5-4 14 0" stroke="#55D6E8" stroke-width="1.5" stroke-linecap="round"></path>
+<circle cx="360" cy="240" r="14" fill="#10141D" stroke="#55D6E8" stroke-opacity=".8"></circle>
+<circle cx="360" cy="236" r="3.5" fill="#55D6E8"></circle>
+<path d="M353 247c1.5-4 12.5-4 14 0" stroke="#55D6E8" stroke-width="1.5" stroke-linecap="round"></path>
+</g>
+<circle class="ring" cx="500" cy="190" r="22" stroke="#55D6E8" stroke-width="1.5"></circle>
+<circle cx="500" cy="190" r="22" fill="url(#vgC)"></circle>
+<path d="M490 190l7 7 13-14" stroke="#080A10" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path>
+<g fill="#F5F6FA">
+<circle r="2.6">
+<animatemotion dur="6s" repeatCount="indefinite" path="M78 90C140 90 150 190 210 190C280 190 290 140 360 140C430 140 440 190 500 190"></animatemotion>
+<animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.08;.9;1" dur="6s" repeatCount="indefinite"></animate>
+</circle>
+<circle r="2.6" fill="#55D6E8">
+<animatemotion dur="6s" begin="2s" repeatCount="indefinite" path="M78 290C140 290 150 190 210 190C280 190 290 240 360 240C430 240 440 190 500 190"></animatemotion>
+<animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.08;.9;1" dur="6s" begin="2s" repeatCount="indefinite"></animate>
+</circle>
+<circle r="2.2" fill="#B7A6FF">
+<animatemotion dur="3s" begin=".5s" repeatCount="indefinite" path="M78 190H210"></animatemotion>
+<animate attributeName="opacity" values="0;1;0" dur="3s" begin=".5s" repeatCount="indefinite"></animate>
+</circle>
+<circle r="2">
+<animatemotion dur="3.4s" begin="1.2s" repeatCount="indefinite" path="M78 90C140 90 150 190 210 190"></animatemotion>
+<animate attributeName="opacity" values="0;.9;0" dur="3.4s" begin="1.2s" repeatCount="indefinite"></animate>
+</circle>
+<circle r="2" fill="#B7A6FF">
+<animatemotion dur="3.2s" begin="2.6s" repeatCount="indefinite" path="M78 290C140 290 150 190 210 190"></animatemotion>
+<animate attributeName="opacity" values="0;.9;0" dur="3.2s" begin="2.6s" repeatCount="indefinite"></animate>
+</circle>
+<circle r="2.4">
+<animatemotion dur="6s" begin="4s" repeatCount="indefinite" path="M78 190H210C280 190 290 140 360 140C430 140 440 190 500 190"></animatemotion>
+<animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.08;.9;1" dur="6s" begin="4s" repeatCount="indefinite"></animate>
+</circle>
+</g>
+</svg>
+</div>
+<ol class="viz-legend">
+<li>
+<span class="viz-k">Campaigns</span>
+<span class="viz-v">Targeted ads go live</span>
+</li>
+<li>
+<span class="viz-k">Attention</span>
+<span class="viz-v">The right audience notices</span>
+</li>
+<li>
+<span class="viz-k">Qualified leads</span>
+<span class="viz-v">Serious buyers enquire</span>
+</li>
+<li>
+<span class="viz-k">Customers</span>
+<span class="viz-v">Your team closes</span>
+</li>
+</ol>
+</div>
+</div>
+</section>
+<section class="band stats" id="results" aria-labelledby="stats-h2">
+<div class="wrap">
+<div class="stats-head rv">
+<div class="stats-title">
+<p class="eyebrow">[ Our impact in numbers ]</p>
+<h2 class="h2" id="stats-h2">Performance You Can Measure.</h2>
+</div>
+<p class="stats-lead">We track every campaign from the first impression to the enquiry in your inbox. These are the totals behind our work so far.</p>
+</div>
+<div class="stat-grid">
+<div class="stat rv">
+<div class="stat-top" aria-hidden="true">
+<span class="stat-idx">01</span>
+<span class="stat-dot"></span>
+</div>
+<div class="stat-body">
+<span class="stat-num sn-roas">4.1x</span>
+<p class="stat-label">Average Account ROAS</p>
+</div>
+</div>
+<div class="stat rv">
+<div class="stat-top" aria-hidden="true">
+<span class="stat-idx">02</span>
+<span class="stat-dot"></span>
+</div>
+<div class="stat-body">
+<span class="stat-num sn-rev">+₦10M</span>
+<p class="stat-label">Revenue Generated</p>
+</div>
+</div>
+<div class="stat rv">
+<div class="stat-top" aria-hidden="true">
+<span class="stat-idx">03</span>
+<span class="stat-dot"></span>
+</div>
+<div class="stat-body">
+<span class="stat-num sn-spend">+₦3M</span>
+<p class="stat-label">Adspend Managed</p>
+</div>
+</div>
+<div class="stat rv">
+<div class="stat-top" aria-hidden="true">
+<span class="stat-idx">04</span>
+<span class="stat-dot"></span>
+</div>
+<div class="stat-body">
+<span class="stat-num sn-creative">+50</span>
+<p class="stat-label">Ad Creatives Developed</p>
+</div>
+</div>
+<div class="stat rv">
+<div class="stat-top" aria-hidden="true">
+<span class="stat-idx">05</span>
+<span class="stat-dot"></span>
+</div>
+<div class="stat-body">
+<span class="stat-num sn-clients">5</span>
+<p class="stat-label">Current Client Partnerships</p>
+</div>
+</div>
+</div>
+<div class="stats-js" aria-hidden="true"></div>
+</div>
+</section>
+<section class="band band--alt" id="value">
+<div class="wrap split">
+<div class="split-head rv">
+<p class="eyebrow">Why it works</p>
+<h2 class="h2">Growth should be engineered. Not guessed.</h2>
+<p class="lead">Boosting a post puts it in front of more people. It does not decide who those people are, what they should do next, or whether they can afford what you sell. Customer acquisition needs a plan for every step between the ad and the enquiry.</p>
+<a href="#/services" class="tlink">See how we build campaigns →</a>
+</div>
+<div class="stack">
+<div class="card spot vcard rv">
+<span class="ico">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="12" cy="12" r="9"></circle>
+<circle cx="12" cy="12" r="5"></circle>
+<circle cx="12" cy="12" r="1.2" fill="currentColor"></circle>
+<path d="M12 3v3M21 12h-3"></path>
+</svg>
+</span>
+<div class="vcard-body">
+<h3 class="h3">Strategic advertising</h3>
+<p>Campaigns designed around your business objectives, how your audience behaves online and real demand in your market, not around whatever post did well last week.</p>
+</div>
+</div>
+<div class="card spot vcard rv">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18l-7 8v5l-4 2v-7z"></path></svg></span>
+<div class="vcard-body">
+<h3 class="h3">Qualified lead generation</h3>
+<p>We aim campaigns at people genuinely interested in buying, renting or booking, and filter out casual browsers before they reach your sales team.</p>
+</div>
+</div>
+<div class="card spot vcard rv">
+<span class="ico">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M3 17l5-5 4 4 8-9"></path>
+<path d="M15 7h5v5"></path>
+</svg>
+</span>
+<div class="vcard-body">
+<h3 class="h3">Performance optimization</h3>
+<p>We review campaign performance continuously, keep what brings in enquiries, cut what wastes budget and test new angles against the current best.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="band" id="industries">
+<div class="wrap">
+<div class="shead rv">
+<p class="eyebrow">Industries we serve</p>
+<h2 class="h2">Built for industries where every lead matters.</h2>
+<p class="lead">One car sale or one property deal can pay for months of advertising. We focus on two high-value industries so every campaign speaks the language your buyers already use.</p>
+</div>
+<div class="g2">
+<article class="ind rv">
+<div class="ind-media">
+<img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&amp;fit=crop&amp;w=1200&amp;q=70" alt="Luxury sports car under low dramatic lighting" loading="lazy" width="1200" height="750" />
+<span class="ind-tag">Automotive</span>
+</div>
+<div class="ind-body">
+<h3 class="h3">Automotive</h3>
+<p>We help car dealerships, vehicle sellers and rental businesses reach serious buyers and customers through strategic digital advertising.</p>
+<ul class="ticks">
+<li>Car sales lead generation</li>
+<li>Luxury vehicle marketing</li>
+<li>Used and new vehicle advertising</li>
+<li>Car rental customer acquisition</li>
+<li>Vehicle leasing campaigns</li>
+</ul>
+<a href="#/industries/automotive" class="tlink">Explore Automotive Marketing →</a>
+</div>
+</article>
+<article class="ind rv">
+<div class="ind-media">
+<img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&amp;fit=crop&amp;w=1200&amp;q=70" alt="Modern luxury home with a pool lit at dusk" loading="lazy" width="1200" height="750" />
+<span class="ind-tag">Real Estate</span>
+</div>
+<div class="ind-body">
+<h3 class="h3">Real Estate</h3>
+<p>We help property developers, real estate agencies and rental businesses connect with qualified buyers, tenants and investors.</p>
+<ul class="ticks">
+<li>Property sales lead generation</li>
+<li>House rental campaigns</li>
+<li>Luxury property marketing</li>
+<li>Real estate advertising</li>
+<li>Property enquiry generation</li>
+</ul>
+<a href="#/industries/real-estate" class="tlink">Explore Real Estate Marketing →</a>
+</div>
+</article>
+</div>
+</div>
+</section>
+<section class="band band--alt" id="services">
+<div class="wrap">
+<div class="shead rv">
+<p class="eyebrow">Our services</p>
+<h2 class="h2">Everything you need to acquire more customers.</h2>
+<p class="lead">Take one service on its own or hand us the whole system, from the first ad to the enquiry landing in your WhatsApp.</p>
+</div>
+<div class="g3">
+<div class="card spot rv">
+<span class="ico">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M4 10v4h3l6 4V6L7 10z"></path>
+<path d="M17 9a4 4 0 0 1 0 6M19.5 6.5a7.5 7.5 0 0 1 0 11"></path>
+</svg>
+</span>
+<h3 class="h3">Paid Advertising</h3>
+<p>Facebook and Instagram campaigns built and managed to reach the people most likely to buy.</p>
+<ul class="ticks">
+<li>Meta Ads campaign management</li>
+<li>Audience targeting</li>
+<li>Campaign setup and management</li>
+</ul>
+</div>
+<div class="card spot rv">
+<span class="ico">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="9" cy="8" r="3.5"></circle>
+<path d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5"></path>
+<path d="M16 11l2 2 4-4"></path>
+</svg>
+</span>
+<h3 class="h3">Lead Generation</h3>
+<p>Campaigns and capture paths that turn interest into names, numbers and real conversations.</p>
+<ul class="ticks">
+<li>Lead forms and landing pages</li>
+<li>WhatsApp enquiry funnels</li>
+<li>Prospect qualification strategies</li>
+</ul>
+</div>
+<div class="card spot rv">
+<span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.2 5.3L20 9l-4.4 3.8L17 18.5 12 15.6 7 18.5l1.4-5.7L4 9l5.8-.7z"></path></svg></span>
+<h3 class="h3">Creative Strategy</h3>
+<p>Ad concepts, copy and messaging that stop the scroll and make the right people act.</p>
+<ul class="ticks">
+<li>Advertising creative concepts</li>
+<li>Ad copywriting and messaging</li>
+<li>Creative direction for campaigns</li>
+</ul>
+</div>
+<div class="card spot rv">
+<span class="ico">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"></path>
+<circle cx="16" cy="6" r="2"></circle>
+<circle cx="10" cy="12" r="2"></circle>
+<circle cx="18" cy="18" r="2"></circle>
+</svg>
+</span>
+<h3 class="h3">Campaign Optimization</h3>
+<p>Ongoing testing and budget decisions based on what is actually producing enquiries.</p>
+<ul class="ticks">
+<li>Performance monitoring</li>
+<li>Audience and creative testing</li>
+<li>Budget optimization and conversion tracking where supported</li>
+</ul>
+</div>
+<div class="card spot rv">
+<span class="ico">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<rect x="3" y="4" width="18" height="16" rx="2.5"></rect>
+<path d="M3 8.5h18M7 13h6M7 16.5h10"></path>
+</svg>
+</span>
+<h3 class="h3">Landing Pages</h3>
+<p>Fast, focused pages that give your ad traffic one clear next step.</p>
+<ul class="ticks">
+<li>High-converting campaign landing pages</li>
+<li>Lead capture forms</li>
+<li>Conversion-focused website experiences</li>
+</ul>
+</div>
+<div class="card spot rv">
+<span class="ico">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="5" cy="18" r="2"></circle>
+<circle cx="12" cy="8" r="2"></circle>
+<circle cx="19" cy="13" r="2"></circle>
+<path d="M6.3 16.4l4.4-6.8M13.7 9.1l3.6 2.8"></path>
+<path d="M3 4h4M3 4v4"></path>
+</svg>
+</span>
+<h3 class="h3">Growth Strategy</h3>
+<p>A clear plan for how advertising fits your sales process and where the budget should go.</p>
+<ul class="ticks">
+<li>Advertising and acquisition planning</li>
+<li>Funnel development</li>
+<li>Campaign performance reporting</li>
+</ul>
+</div>
+</div>
+<div class="more"><a type="button" href="#/services" class="btn btn--ghost">View all services in detail →</a></div>
+</div>
+</section>
+<section class="band" id="process">
+<div class="wrap">
+<div class="shead rv">
+<p class="eyebrow">How we work</p>
+<h2 class="h2">A smarter approach to customer acquisition.</h2>
+</div>
+<ol class="tl rv">
+<li class="tl-track" aria-hidden="true"><span class="tl-fill">Text</span></li>
+<li class="tl-step">
+<span class="tl-dot">01</span>
+<span class="tl-k">Discover</span>
+<p>We understand your business, services, target audience and growth objectives.</p>
+</li>
+<li class="tl-step">
+<span class="tl-dot">02</span>
+<span class="tl-k">Strategize</span>
+<p>We develop an advertising strategy tailored to your market and business goals.</p>
+</li>
+<li class="tl-step">
+<span class="tl-dot">03</span>
+<span class="tl-k">Launch</span>
+<p>We build and launch targeted advertising campaigns designed to attract qualified prospects.</p>
+</li>
+<li class="tl-step">
+<span class="tl-dot">04</span>
+<span class="tl-k">Optimize</span>
+<p>We monitor performance, test opportunities and continuously improve campaign effectiveness.</p>
+</li>
+</ol>
+</div>
+</section>
+<section class="band band--alt why" id="why">
+<div class="wrap split">
+<div class="split-head rv">
+<p class="eyebrow">Why Connell Labs</p>
+<h2 class="h2">Not just more traffic. Better opportunities.</h2>
+<p class="lead">Clicks and likes are easy to buy. We judge our work by the quality of the people who end up talking to your team.</p>
+<a type="button" href="#/about" class="btn btn--ghost">About Connell Labs →</a>
+</div>
+<div class="diffs rv">
+<div class="diff">
+<h3 class="h3">Industry-focused expertise</h3>
+<p>We work only with automotive and real estate, so we know how your buyers search, compare and decide.</p>
+</div>
+<div class="diff">
+<h3 class="h3">Performance-driven advertising</h3>
+<p>Every campaign has a business goal, like enquiries or bookings, and is measured against it.</p>
+</div>
+<div class="diff">
+<h3 class="h3">Strategic audience targeting</h3>
+<p>Location, intent and buying power shape who sees your ads, from Maitama to Lekki and beyond.</p>
+</div>
+<div class="diff">
+<h3 class="h3">Conversion-focused campaigns</h3>
+<p>The ad, the landing page and the WhatsApp path are designed together so fewer prospects drop off.</p>
+</div>
+<div class="diff">
+<h3 class="h3">Transparent communication</h3>
+<p>You know what is running, what it costs and what we plan to change next. No hidden reports.</p>
+</div>
+<div class="diff">
+<h3 class="h3">Data-informed optimization</h3>
+<p>Decisions come from campaign data and your feedback on lead quality, not from guesswork.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="band" id="start">
+<div class="wrap">
+<div class="cta-box rv">
+<div class="cta-orbits" aria-hidden="true">
+<svg viewBox="0 0 800 800" fill="none">
+<defs>
+<lineargradient id="og" x1="0" y1="0" x2="800" y2="800" gradientUnits="userSpaceOnUse">
+<stop stop-color="#7957FF"></stop>
+<stop offset="1" stop-color="#55D6E8"></stop>
+</lineargradient>
+</defs>
+<g stroke="url(#og)" stroke-opacity=".35">
+<circle cx="400" cy="400" r="170"></circle>
+<circle cx="400" cy="400" r="260" stroke-dasharray="2 8"></circle>
+<circle cx="400" cy="400" r="350"></circle>
+<circle cx="400" cy="400" r="395" stroke-dasharray="1 12"></circle>
+</g>
+<circle cx="570" cy="400" r="5" fill="#55D6E8"></circle>
+<circle cx="400" cy="140" r="4" fill="#B7A6FF"></circle>
+<circle cx="152" cy="510" r="4" fill="#55D6E8"></circle>
+<circle cx="648" cy="246" r="3" fill="#F5F6FA"></circle>
+<circle cx="400" cy="750" r="5" fill="#7957FF"></circle>
+</svg>
+</div>
+<p class="eyebrow">Start here</p>
+<h2 class="h2">Ready to turn attention into revenue?</h2>
+<p class="lead">Let's build an advertising strategy that puts your business in front of the right people.</p>
+<div class="ctas">
+<a type="button" href="#/contact" class="btn btn--pri">Start a Conversation →</a>
+<a type="button" href="https://wa.me/2349132512387" class="btn btn--ghost" target="_blank" rel="noopener" data-wa="true">Contact Our Team on WhatsApp</a>
+</div>
+<p class="cta-note">Serving Abuja, Lagos and businesses across Nigeria</p>
+</div>
+</div>
+</section>
+</div>
+<div id="view-services" class="view" data-view="services">
+<div class="pg">
+<section class="phero">
+<div class="wrap">
+<p class="eyebrow">Services</p>
+<h1 class="h1 h1--page">Advertising services built around one outcome: more customers.</h1>
+<p class="lead">Here is what each service includes, how it works and the business problem it solves. Choose one, combine several, or ask us to recommend the right mix.</p>
+<a type="button" href="#/contact" class="btn btn--pri">Get Started →</a>
+</div>
+</section>
+<section class="band" style="padding-top: 0">
+<div class="wrap srows">
+<article class="srow rv" id="meta-advertising">
+<div class="srow-main">
+<span class="srow-k">Paid advertising</span>
+<h2 class="h3">Meta advertising</h2>
+<p>Full management of your Facebook and Instagram advertising, from account structure to daily decisions.</p>
+<a href="#/contact" class="tlink">Discuss Meta advertising →</a>
+</div>
+<div class="srow-detail">
+<div class="dblk">
+<span class="dk">What it includes</span>
+<p>Campaign setup, audience building, placements, budgets, pixel and event setup where supported, and ongoing management.</p>
+</div>
+<div class="dblk">
+<span class="dk">How it works</span>
+<p>Campaigns run in your own ad account. We agree goals and budget first, then build, launch and review on a set schedule.</p>
+</div>
+<div class="dblk dblk--wide">
+<span class="dk">Problem it solves</span>
+<p>Boosted posts that collect likes but no buyers. Structured campaigns put budget behind the people most likely to enquire.</p>
+</div>
+</div>
+</article>
+<article class="srow rv" id="automotive-leads">
+<div class="srow-main">
+<span class="srow-k">Automotive</span>
+<h2 class="h3">Automotive lead generation</h2>
+<p>Campaigns that bring dealerships and vehicle sellers enquiries from people actively shopping for a car.</p>
+<a href="#/contact" class="tlink">Get more car buyers →</a>
+</div>
+<div class="srow-detail">
+<div class="dblk">
+<span class="dk">What it includes</span>
+<p>Inventory-led ads, model and price-range targeting, enquiry forms and WhatsApp funnels for new, used and luxury stock.</p>
+</div>
+<div class="dblk">
+<span class="dk">How it works</span>
+<p>We feature the vehicles you want to move, ask qualifying questions up front and route enquiries to your sales team.</p>
+</div>
+<div class="dblk dblk--wide">
+<span class="dk">Problem it solves</span>
+<p>Showroom traffic that depends on walk-ins and referrals. Ads create a steadier stream of buyer conversations.</p>
+</div>
+</div>
+</article>
+<article class="srow rv" id="real-estate-leads">
+<div class="srow-main">
+<span class="srow-k">Real estate</span>
+<h2 class="h3">Real estate lead generation</h2>
+<p>Property enquiries from buyers and investors who match your price point and location.</p>
+<a href="#/contact" class="tlink">Get more property enquiries →</a>
+</div>
+<div class="srow-detail">
+<div class="dblk">
+<span class="dk">What it includes</span>
+<p>Listing and development campaigns, inspection booking forms, investor messaging and lead qualification questions.</p>
+</div>
+<div class="dblk">
+<span class="dk">How it works</span>
+<p>We build each campaign around a property or project, target by area and budget, and capture details before a call.</p>
+</div>
+<div class="dblk dblk--wide">
+<span class="dk">Problem it solves</span>
+<p>Agents chasing enquiries from people who cannot afford the property. Qualification saves your team hours.</p>
+</div>
+</div>
+</article>
+<article class="srow rv" id="car-rental">
+<div class="srow-main">
+<span class="srow-k">Automotive</span>
+<h2 class="h3">Car rental customer acquisition</h2>
+<p>Booking enquiries for rental and chauffeur businesses, from weekend hires to corporate and event clients.</p>
+<a href="#/contact" class="tlink">Fill more rental days →</a>
+</div>
+<div class="srow-detail">
+<div class="dblk">
+<span class="dk">What it includes</span>
+<p>Fleet-led ads, seasonal and event campaigns, airport and city targeting and a quick WhatsApp booking path.</p>
+</div>
+<div class="dblk">
+<span class="dk">How it works</span>
+<p>We match campaigns to demand peaks such as weddings and holidays, and keep them running in quieter weeks.</p>
+</div>
+<div class="dblk dblk--wide">
+<span class="dk">Problem it solves</span>
+<p>Vehicles sitting idle between bookings. Consistent advertising keeps the fleet working.</p>
+</div>
+</div>
+</article>
+<article class="srow rv" id="property-rental">
+<div class="srow-main">
+<span class="srow-k">Real estate</span>
+<h2 class="h3">Property rental lead generation</h2>
+<p>Tenant enquiries for apartments, houses, shortlets and commercial space.</p>
+<a href="#/contact" class="tlink">Find tenants faster →</a>
+</div>
+<div class="srow-detail">
+<div class="dblk">
+<span class="dk">What it includes</span>
+<p>Rental listing ads, area targeting, move-in date and budget questions, and inspection scheduling paths.</p>
+</div>
+<div class="dblk">
+<span class="dk">How it works</span>
+<p>We advertise available units to people searching in that area and pass ready tenants to your team.</p>
+</div>
+<div class="dblk dblk--wide">
+<span class="dk">Problem it solves</span>
+<p>Units that stay empty for months. Every vacant week is lost income.</p>
+</div>
+</div>
+</article>
+<article class="srow rv" id="creative-strategy">
+<div class="srow-main">
+<span class="srow-k">Creative</span>
+<h2 class="h3">Advertising creative strategy</h2>
+<p>The concepts, copy and visual direction that make people stop scrolling and take action.</p>
+<a href="#/contact" class="tlink">Improve your ads →</a>
+</div>
+<div class="srow-detail">
+<div class="dblk">
+<span class="dk">What it includes</span>
+<p>Ad concepts, hooks, copywriting, photo and video briefs, and messaging for each audience.</p>
+</div>
+<div class="dblk">
+<span class="dk">How it works</span>
+<p>We develop several angles, test them against each other and build on the ones your audience responds to.</p>
+</div>
+<div class="dblk dblk--wide">
+<span class="dk">Problem it solves</span>
+<p>Ads that look like every other listing. Clear, specific creative gives buyers a reason to choose you.</p>
+</div>
+</div>
+</article>
+<article class="srow rv" id="landing-pages">
+<div class="srow-main">
+<span class="srow-k">Conversion</span>
+<h2 class="h3">Landing page development</h2>
+<p>Focused, mobile-first pages that turn ad clicks into submitted enquiries.</p>
+<a href="#/contact" class="tlink">Request a landing page →</a>
+</div>
+<div class="srow-detail">
+<div class="dblk">
+<span class="dk">What it includes</span>
+<p>Page copy and layout, lead capture forms, WhatsApp buttons and tracking setup where supported.</p>
+</div>
+<div class="dblk">
+<span class="dk">How it works</span>
+<p>One page per offer, with one clear action, designed to load fast on mobile data.</p>
+</div>
+<div class="dblk dblk--wide">
+<span class="dk">Problem it solves</span>
+<p>Paying for clicks that land on a slow or confusing website and leave without enquiring.</p>
+</div>
+</div>
+</article>
+<article class="srow rv" id="optimization">
+<div class="srow-main">
+<span class="srow-k">Performance</span>
+<h2 class="h3">Campaign optimization</h2>
+<p>Continuous improvement of running campaigns, including ones you already have live.</p>
+<a href="#/contact" class="tlink">Review my campaigns →</a>
+</div>
+<div class="srow-detail">
+<div class="dblk">
+<span class="dk">What it includes</span>
+<p>Performance monitoring, audience and creative testing, budget reallocation and conversion tracking where supported.</p>
+</div>
+<div class="dblk">
+<span class="dk">How it works</span>
+<p>Regular reviews with clear reporting on what changed, why, and what we will test next.</p>
+</div>
+<div class="dblk dblk--wide">
+<span class="dk">Problem it solves</span>
+<p>Campaigns left running unchanged while costs rise and results fade.</p>
+</div>
+</div>
+</article>
+</div>
+</section>
+</div>
+</div>
+<div id="view-industries" class="view" data-view="industries">
+<div class="pg">
+<section class="phero">
+<div class="wrap">
+<p class="eyebrow">Industries</p>
+<h1 class="h1 h1--page">Two industries. Deep focus on both.</h1>
+<p class="lead">Automotive and real estate buyers take time to decide and spend a lot when they do. We build campaigns for that kind of decision, for businesses in Abuja, Lagos and across Nigeria.</p>
+<div class="ctas">
+<a type="button" href="#/industries/automotive" class="btn btn--ghost">Automotive</a>
+<a type="button" href="#/industries/real-estate" class="btn btn--ghost">Real Estate</a>
+</div>
+</div>
+</section>
+<section class="band" id="automotive" style="scroll-margin-top: 72px">
+<div class="wrap ipanel">
+<div class="ipanel-media rv"><img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&amp;fit=crop&amp;w=1000&amp;q=70" alt="Premium car parked in soft evening light" loading="lazy" width="1000" height="1250" /></div>
+<div class="ipanel-body rv">
+<p class="eyebrow">Automotive marketing</p>
+<h2 class="h2">Put your vehicles in front of people ready to buy or book.</h2>
+<div class="helps">
+<div class="help">
+<h3 class="h3">Car dealerships</h3>
+<p>Generate buyer enquiries for the stock you need to move, filtered by model and budget.</p>
+</div>
+<div class="help">
+<h3 class="h3">Luxury car sellers</h3>
+<p>Attract high-intent prospects with premium creative and audiences matched to buying power.</p>
+</div>
+<div class="help">
+<h3 class="h3">Car rental companies</h3>
+<p>Generate booking enquiries for daily hire, events, airport runs and corporate clients.</p>
+</div>
+<div class="help">
+<h3 class="h3">Vehicle leasing</h3>
+<p>Reach businesses and individuals who need vehicles on flexible terms.</p>
+</div>
+</div>
+<a type="button" href="#/contact" class="btn btn--pri">Get more automotive leads →</a>
+</div>
+</div>
+</section>
+<section class="band band--alt" id="real-estate" style="scroll-margin-top: 72px">
+<div class="wrap ipanel ipanel--rev">
+<div class="ipanel-media rv"><img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&amp;fit=crop&amp;w=1000&amp;q=70" alt="Contemporary luxury villa with glass walls and warm interior lighting" loading="lazy" width="1000" height="1250" /></div>
+<div class="ipanel-body rv">
+<p class="eyebrow">Real estate marketing</p>
+<h2 class="h2">Connect your properties with qualified buyers and tenants.</h2>
+<div class="helps">
+<div class="help">
+<h3 class="h3">Real estate companies</h3>
+<p>Generate property enquiries across listings, with budget and location captured up front.</p>
+</div>
+<div class="help">
+<h3 class="h3">Property developers</h3>
+<p>Attract prospective buyers and investors for off-plan and completed projects.</p>
+</div>
+<div class="help">
+<h3 class="h3">Rental businesses</h3>
+<p>Attract potential tenants for apartments, houses, shortlets and commercial space.</p>
+</div>
+<div class="help">
+<h3 class="h3">Independent agents</h3>
+<p>Market your properties to targeted audiences without building a big marketing team.</p>
+</div>
+</div>
+<a type="button" href="#/contact" class="btn btn--pri">Get more property enquiries →</a>
+</div>
+</div>
+</section>
+<section class="band">
+<div class="wrap">
+<div class="locs rv">
+<div class="stack" style="gap: 10px">
+<p class="eyebrow">Where we work</p>
+<h2 class="h3" style="font-size: clamp(1.4rem,2.6vw,2rem)">Abuja and Lagos first. Businesses across Nigeria welcome.</h2>
+</div>
+<a type="button" href="#/contact" class="btn btn--pri">Start a Conversation →</a>
+</div>
+</div>
+</section>
+</div>
+</div>
+<div id="view-about" class="view" data-view="about">
+<div class="pg">
+<section class="phero">
+<div class="wrap">
+<p class="eyebrow">About Connell Labs</p>
+<h1 class="h1 h1--page">Growth is not an accident. It's a strategy.</h1>
+<p class="lead">Connell Labs is a performance marketing and customer acquisition agency for automotive and real estate businesses in Nigeria.</p>
+</div>
+</section>
+<section class="band">
+<div class="wrap split">
+<div class="split-head rv">
+<p class="eyebrow">Our story</p>
+<h2 class="h2">Built for businesses where one customer changes the month.</h2>
+</div>
+<div class="story-body rv">
+<p>Most businesses selling cars or property already advertise online. Many are paying for reach and engagement that never turns into a showroom visit or a property inspection. The gap is rarely the product. It is the system between the ad and the sale.</p>
+<p>Connell Labs was set up to close that gap. We plan who should see your ads, what they should say, where interested people should go next and how your team should receive them. Then we measure it and improve it.</p>
+<p>We chose to focus on automotive and real estate because they share the same challenge: high-value decisions, long consideration and buyers who want to trust who they deal with.</p>
+<div class="card ph">
+<span class="ph-tag">Editable placeholder</span>
+<h3 class="h3">Founder and team</h3>
+<p>Add your founding story, team members and relevant background here. Keep it factual: who leads Connell Labs, where you are based and what experience you bring.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="band band--alt mvp">
+<div class="wrap">
+<div class="g3">
+<div class="card spot rv">
+<p class="eyebrow">Our mission</p>
+<p class="statement">To help automotive and real estate businesses across Nigeria grow through strategic digital advertising, effective lead generation and measurable customer acquisition.</p>
+</div>
+<div class="card spot rv">
+<p class="eyebrow">Our vision</p>
+<p class="statement">To become a leading customer acquisition partner for high-value businesses across Nigeria and eventually international markets.</p>
+</div>
+<div class="card spot rv">
+<p class="eyebrow">Our approach</p>
+<p class="statement">Discover, strategize, launch, optimize. Every campaign follows the same disciplined loop, shaped around your market.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="band">
+<div class="wrap shead--c shead rv" style="margin-bottom: 0">
+<p class="eyebrow">Our philosophy</p>
+<blockquote class="bigq"><p>We believe advertising should do more than generate impressions. It should create meaningful business opportunities.</p></blockquote>
+</div>
+</section>
+<section class="band band--alt">
+<div class="wrap split">
+<div class="split-head rv">
+<p class="eyebrow">Industries we serve</p>
+<h2 class="h2">Automotive and real estate. Nothing else.</h2>
+<a href="#/industries" class="tlink">See how we help each industry →</a>
+</div>
+<div class="stack rv">
+<p class="eyebrow">Our commitment to clients</p>
+<ul class="commit">
+<li>Clear goals agreed before any money is spent</li>
+<li>Campaigns run in your own ad account</li>
+<li>Honest reporting, including what did not work</li>
+<li>No promised numbers we cannot stand behind</li>
+<li>Quick, direct communication on WhatsApp and email</li>
+<li>Lead quality judged together with your sales team</li>
+</ul>
+</div>
+</div>
+</section>
+</div>
+</div>
+<div id="view-contact" class="view" data-view="contact">
+<div class="pg">
+<section class="band" style="padding-top: clamp(56px,7vw,104px)">
+<div class="wrap contact" style="display: grid; align-items: start">
+<div class="contact-side">
+<p class="eyebrow">Contact</p>
+<h1 class="h1 h1--page">Let's talk about growing your business.</h1>
+<p class="lead">Tell us a little about your business and what you're looking to achieve. Our team will get back to you to discuss how Connell Labs can help.</p>
+<a href="https://wa.me/2349132512387" class="wa-card" target="_blank" rel="noopener" data-wa="true">
+<span class="ico">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M20 11.6A8.4 8.4 0 0 1 7.6 19L3.5 20.2l1.2-3.9A8.4 8.4 0 1 1 20 11.6z"></path>
+<path d="M9 8.6c0 3.4 2.9 6.3 6.3 6.3l1.1-1.5-2-1-1 .8a4.4 4.4 0 0 1-2.4-2.4l.8-1-1-2z"></path>
+</svg>
+</span>
+<span class="wa-txt">
+<span class="wa-t">Chat with us on WhatsApp →</span>
+<span class="wa-s">Message the team directly on +234 913 251 2387.</span>
+</span>
+</a>
+<p class="eyebrow">What happens next</p>
+<ol class="nexts">
+<li>
+<span class="n">01</span>
+<span>We review your enquiry and business details.</span>
+</li>
+<li>
+<span class="n">02</span>
+<span>We contact you by phone, WhatsApp or email to arrange a conversation.</span>
+</li>
+<li>
+<span class="n">03</span>
+<span>We recommend an approach and only start once you are happy with it.</span>
+</li>
+</ol>
+<div class="side-meta">
+<a href="mailto:bubelinkks@gmail.com" data-mail="true">bubelinkks@gmail.com</a>
+<a href="https://wa.me/2349132512387" target="_blank" rel="noopener" data-wa="true">WhatsApp: +234 913 251 2387</a>
+<span>Abuja, Nigeria · Lagos, Nigeria</span>
+</div>
+</div>
+<div class="form-card" id="enquiry">
+<div class="form-head">
+<h2 class="h3" style="font-size: 1.5rem">Send an enquiry</h2>
+<p>Takes about two minutes. All fields are required.</p>
+</div>
+<form id="cl-enquiry-form" class="lead-form" action="https://formsubmit.co/bubelinkks@gmail.com" method="POST" aria-label="Enquiry form" accept-charset="UTF-8">
+<div class="hp" aria-hidden="true">
+<input type="hidden" placeholder="Enter text..." name="_subject" value="New Connell Labs website enquiry" />
+<input type="hidden" placeholder="Enter text..." name="_template" value="table" />
+<input type="hidden" placeholder="Enter text..." name="_captcha" value="false" />
+<label for="f-honey">Leave this field empty</label>
+<input type="text" placeholder="Enter text..." id="f-honey" name="_honey" tabindex="-1" autocomplete="off" />
+</div>
+<div class="field-group">
+<label for="f-name" class="field-label">Full name</label>
+<input type="text" placeholder="e.g. Amaka Okonkwo" id="f-name" name="full_name" class="field-input" autocomplete="name" required="true" />
+</div>
+<div class="field-group">
+<label for="f-biz" class="field-label">Business name</label>
+<input type="text" placeholder="Your company name" id="f-biz" name="business_name" class="field-input" autocomplete="organization" required="true" />
+</div>
+<div class="field-group">
+<label for="f-email" class="field-label">Email address</label>
+<input type="email" placeholder="you@company.com" id="f-email" name="email" class="field-input" autocomplete="email" inputmode="email" required="true" />
+</div>
+<div class="field-group">
+<label for="f-phone" class="field-label">Phone / WhatsApp number</label>
+<input type="tel" placeholder="e.g. 0803 000 0000" id="f-phone" name="phone_whatsapp" class="field-input" autocomplete="tel" inputmode="tel" required="true" />
+</div>
+<div class="field-group">
+<label for="f-loc" class="field-label">Business location</label>
+<select id="f-loc" name="location" class="field-select" required="true">
+<option>Select location</option>
+<option value="Abuja">Abuja</option>
+<option value="Lagos">Lagos</option>
+<option value="Other location in Nigeria">Other locations in Nigeria</option>
+</select>
+</div>
+<div class="field-group">
+<label for="f-ind" class="field-label">Industry</label>
+<select id="f-ind" name="industry" class="field-select" required="true">
+<option>Select industry</option>
+<option value="Automotive">Automotive</option>
+<option value="Real Estate">Real Estate</option>
+<option value="Other">Other</option>
+</select>
+</div>
+<div class="field-group">
+<label for="f-svc" class="field-label">Service you're interested in</label>
+<select id="f-svc" name="service" class="field-select" required="true">
+<option>Select a service</option>
+<option value="Lead Generation">Lead Generation</option>
+<option value="Meta Ads Management">Meta Ads Management</option>
+<option value="Creative Strategy">Creative Strategy</option>
+<option value="Landing Page Development">Landing Page Development</option>
+<option value="Full Advertising Management">Full Advertising Management</option>
+<option value="Not Sure Yet">Not Sure Yet</option>
+</select>
+</div>
+<div class="field-group">
+<label for="f-bud" class="field-label">Monthly advertising budget</label>
+<select id="f-bud" name="monthly_budget" class="field-select" required="true">
+<option>Select a range</option>
+<option value="Below N100,000">Below ₦100,000</option>
+<option value="N100,000 to N300,000">₦100,000 to ₦300,000</option>
+<option value="N300,000 to N500,000">₦300,000 to ₦500,000</option>
+<option value="N500,000 to N1,000,000">₦500,000 to ₦1,000,000</option>
+<option value="Above N1,000,000">Above ₦1,000,000</option>
+<option value="Not decided yet">Not Decided Yet</option>
+</select>
+</div>
+<div class="field-group full">
+<label for="f-msg" class="field-label">Tell us about your business and what you want to achieve</label>
+<textarea placeholder="e.g. We sell used SUVs in Abuja and want more serious buyer enquiries each month." rows="5" id="f-msg" name="message" class="field-input field-area" required="true"></textarea>
+</div>
+<div class="form-foot">
+<p id="cl-err" class="form-msg form-msg--err" role="alert" hidden="true">Please complete the highlighted fields.</p>
+<button type="submit" class="btn btn--pri form-submit">Submit Enquiry</button>
+<p class="form-legal">By submitting, you agree that Connell Labs may contact you about this enquiry. See our Privacy Policy.</p>
+</div>
+</form>
+<div id="cl-ok" class="form-ok" role="status" aria-live="polite">
+<span class="ok-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>
+<h2 class="h3" style="font-size: 1.6rem">Enquiry received.</h2>
+<p>Thank you. Your details are with the Connell Labs team and we will get back to you shortly by phone, WhatsApp or email. If it is urgent, message us on WhatsApp.</p>
+<div class="ctas">
+<a type="button" href="https://wa.me/2349132512387" class="btn btn--pri" target="_blank" rel="noopener" data-wa="true">Message us on WhatsApp</a>
+<a type="button" href="#/" class="btn btn--ghost">Back to home</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+<div id="view-legal" class="view" data-view="legal">
+<div class="pg">
+<section class="phero">
+<div class="wrap">
+<p class="eyebrow">Legal</p>
+<h1 class="h1 h1--page">Privacy Policy and Terms of Service</h1>
+</div>
+</section>
+<section class="band">
+<div class="wrap legal-grid">
+<div class="card ph" id="privacy">
+<span class="ph-tag">Replace before launch</span>
+<h2 class="h3">Privacy Policy</h2>
+<p>When you submit an enquiry, Connell Labs collects the details you provide (name, business, contact details, location, industry, budget range and message) to respond to your enquiry and discuss our services. We do not sell your information.</p>
+<p>If analytics or advertising pixels are enabled on this site, they may collect anonymous usage data. Have a qualified adviser review this policy for compliance with the Nigeria Data Protection Act 2023 before publishing.</p>
+</div>
+<div class="card ph" id="terms">
+<span class="ph-tag">Replace before launch</span>
+<h2 class="h3">Terms of Service</h2>
+<p>Content on this website is for general information. Scope, fees, ad spend and responsibilities for any engagement are set out in a separate written agreement.</p>
+<p>Advertising results depend on many factors, including budget, offer, market and follow-up, so Connell Labs does not guarantee specific numbers of leads, sales or revenue.</p>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<footer class="foot">
+<div class="wrap">
+<div class="foot-top">
+<div class="foot-brand">
+<a href="#/" class="logo" aria-label="Connell Labs home">
+<span>CONNELL</span>
+<span class="logo-labs" style="margin-left: 0">LABS</span>
+</a>
+<p class="foot-tag">Performance Marketing & Customer Acquisition.</p>
+<p class="foot-blurb">Helping automotive and real estate businesses across Nigeria generate qualified leads and grow through strategic digital advertising.</p>
+<div class="foot-social socials">
+<a href="#" data-social="instagram" class="soc" aria-label="Connell Labs on Instagram">
+<span>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+<rect x="3" y="3" width="18" height="18" rx="5"></rect>
+<circle cx="12" cy="12" r="4"></circle>
+<circle cx="17.5" cy="6.5" r="1" fill="currentColor"></circle>
+</svg>
+</span>
+</a>
+<a href="#" data-social="facebook" class="soc" aria-label="Connell Labs on Facebook"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M14.5 8H17V4.5h-2.5A3.5 3.5 0 0 0 11 8v2.5H8.5V14H11v6.5h3.5V14H17l.5-3.5h-3V8.5c0-.3.2-.5.5-.5z"></path></svg></span></a>
+<a href="#" data-social="linkedin" class="soc" aria-label="Connell Labs on LinkedIn">
+<span>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+<rect x="3" y="3" width="18" height="18" rx="3"></rect>
+<path d="M8 10.5V17M8 7.2v.1M12 17v-6.5M12 13.5c0-1.7 1-3 2.6-3s2.4 1.1 2.4 3V17"></path>
+</svg>
+</span>
+</a>
+</div>
+</div>
+<div class="foot-col">
+<span class="foot-h">Company</span>
+<a href="#/">Home</a>
+<a href="#/about">About</a>
+<a href="#/services">Services</a>
+<a href="#/industries">Industries</a>
+<a href="#/contact">Contact</a>
+</div>
+<div class="foot-col">
+<span class="foot-h">Industries</span>
+<a href="#/industries/automotive">Automotive</a>
+<a href="#/industries/real-estate">Real Estate</a>
+</div>
+<div class="foot-col">
+<span class="foot-h">Contact</span>
+<a href="mailto:bubelinkks@gmail.com" data-mail="true">Email</a>
+<a href="https://wa.me/2349132512387" target="_blank" rel="noopener" data-wa="true">WhatsApp: +234 913 251 2387</a>
+<span>Abuja, Nigeria</span>
+<span>Lagos, Nigeria</span>
+</div>
+</div>
+<div class="foot-word" aria-hidden="true">CONNELL LABS</div>
+<div class="foot-bottom">
+<p>© 2026 Connell Labs. All rights reserved.</p>
+<div class="foot-legal">
+<a href="#/legal/privacy">Privacy Policy</a>
+<a href="#/legal/terms">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</div>
+</div>
+</div>
+</div>
+  
+  
+  <script>(function(){
+/* ===== Connell LABS SITE SETTINGS =====
+   Edit the values below. Leave any value as '' to switch that feature off.
+   formEmail   : inbox that receives enquiries via FormSubmit (first submission sends a one-time activation email).
+   webhookUrl  : optional. A Make / Zapier / n8n / API endpoint. If set it is used INSTEAD of formEmail (receives JSON).
+   whatsapp    : digits only with country code, no + or spaces (e.g. 234XXXXXXXXXX).
+   socials     : full profile URLs. Empty ones are hidden automatically.
+   siteUrl     : your live domain, used for canonical + Open Graph URLs.
+   gtmId / ga4Id / metaPixelId : paste real IDs to activate tracking. */
+var CONFIG={
+  formEmail:'bubelinkks@gmail.com',
+  webhookUrl:'',
+  whatsapp:'2349132512387',
+  whatsappText:'Hi Connell Labs, I would like to talk about advertising for my business.',
+  email:'bubelinkks@gmail.com',
+  instagram:'',
+  facebook:'',
+  linkedin:'',
+  siteUrl:'',
+  ogImage:'',
+  gtmId:'',
+  ga4Id:'',
+  metaPixelId:''
+};
+var d=document,w=window;var root=d.querySelector('.cl');if(!root)return;
+var canvas=!!d.querySelector('[data-node-id]');
+var reduce=!!(w.matchMedia&&w.matchMedia('(prefers-reduced-motion: reduce)').matches);
+function q(s,c){return [].slice.call((c||d).querySelectorAll(s))}
+var DESC='Connell Labs helps automotive and real estate businesses across Nigeria generate qualified leads and acquire customers through strategic digital advertising.';
+var TITLES={home:'Connell Labs | Performance Marketing & Lead Generation Agency Nigeria',services:'Services | Meta Ads, Lead Generation & Landing Pages | Connell Labs',industries:'Automotive & Real Estate Marketing in Abuja and Lagos | Connell Labs',about:'About Connell Labs | Performance Marketing Agency in Nigeria',contact:'Contact Connell Labs | Start a Conversation',legal:'Privacy Policy & Terms of Service | Connell Labs'};
+function meta(a,k,v){if(!v)return;var m=d.head.querySelector('meta['+a+'="'+k+'"]');if(!m){m=d.createElement('meta');m.setAttribute(a,k);d.head.appendChild(m)}m.setAttribute('content',v)}
+function base(){return (CONFIG.siteUrl||(location.origin+location.pathname)).replace(/\/$/,'')}
+function seo(name){var t=TITLES[name]||TITLES.home;d.title=t;meta('name','description',DESC);meta('property','og:title',t);meta('property','og:description',DESC);meta('property','og:type','website');meta('property','og:site_name','Connell Labs');meta('property','og:locale','en_NG');meta('property','og:url',base()+'/'+(name==='home'?'':'#/'+name));meta('property','og:image',CONFIG.ogImage);meta('name','twitter:card',CONFIG.ogImage?'summary_large_image':'summary');meta('name','twitter:title',t);meta('name','twitter:description',DESC);meta('name','geo.region','NG-FC');meta('name','geo.placename','Abuja; Lagos');var l=d.head.querySelector('link[rel="canonical"]');if(!l){l=d.createElement('link');l.rel='canonical';d.head.appendChild(l)}l.href=base()+'/'}
+function ld(){if(d.getElementById('cl-ld'))return;var o={'@context':'https://schema.org','@type':'ProfessionalService','name':'Connell Labs','description':DESC,'url':base()+'/','slogan':'We turn advertising into customers.','areaServed':[{'@type':'City','name':'Abuja'},{'@type':'City','name':'Lagos'},{'@type':'Country','name':'Nigeria'}],'address':[{'@type':'PostalAddress','addressLocality':'Abuja','addressCountry':'NG'},{'@type':'PostalAddress','addressLocality':'Lagos','addressCountry':'NG'}],'knowsAbout':['Performance marketing','Meta advertising','Lead generation','Automotive marketing','Real estate marketing']};var s=[CONFIG.instagram,CONFIG.facebook,CONFIG.linkedin].filter(Boolean);if(s.length)o.sameAs=s;if(CONFIG.email)o.email=CONFIG.email;if(CONFIG.whatsapp)o.telephone='+'+CONFIG.whatsapp;var sc=d.createElement('script');sc.type='application/ld+json';sc.id='cl-ld';sc.text=JSON.stringify(o);d.head.appendChild(sc)}
+function add(src){var s=d.createElement('script');s.async=true;s.src=src;d.head.appendChild(s)}
+function track(){if(canvas)return;if(CONFIG.gtmId){w.dataLayer=w.dataLayer||[];w.dataLayer.push({'gtm.start':Date.now(),event:'gtm.js'});add('https://www.googletagmanager.com/gtm.js?id='+CONFIG.gtmId)}if(CONFIG.ga4Id){w.dataLayer=w.dataLayer||[];w.gtag=w.gtag||function(){w.dataLayer.push(arguments)};w.gtag('js',new Date());w.gtag('config',CONFIG.ga4Id,{send_page_view:false});add('https://www.googletagmanager.com/gtag/js?id='+CONFIG.ga4Id)}if(CONFIG.metaPixelId&&!w.fbq){var n=w.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!w._fbq)w._fbq=n;n.push=n;n.loaded=true;n.version='2.0';n.queue=[];add('https://connect.facebook.net/en_US/fbevents.js');w.fbq('init',CONFIG.metaPixelId)}}
+function pv(name){if(canvas)return;if(w.fbq)w.fbq('track','PageView');if(w.gtag&&CONFIG.ga4Id)w.gtag('event','page_view',{page_title:d.title,page_location:location.href});if(w.dataLayer)w.dataLayer.push({event:'virtual_pageview',page:name})}
+function conv(x){if(w.fbq)w.fbq('track','Lead',{content_category:x.industry||''});if(w.gtag&&CONFIG.ga4Id)w.gtag('event','generate_lead',{industry:x.industry||'',service:x.service||''});if(w.dataLayer)w.dataLayer.push({event:'enquiry_submitted',industry:x.industry||'',service:x.service||''})}
+function links(){var wa=CONFIG.whatsapp?'https://wa.me/'+CONFIG.whatsapp+'?text='+encodeURIComponent(CONFIG.whatsappText):'';q('[data-wa]').forEach(function(a){if(wa){a.href=wa;a.target='_blank';a.rel='noopener'}else{a.href='#/contact'}});q('[data-mail]').forEach(function(a){if(CONFIG.email){a.href='mailto:'+CONFIG.email;if(a.hasAttribute('data-show'))a.textContent=CONFIG.email}else{a.href='#/contact'}});var any=false;q('[data-social]').forEach(function(a){var u=CONFIG[a.getAttribute('data-social')];if(u){a.href=u;a.target='_blank';a.rel='noopener';any=true}else if(!canvas){a.style.display='none'}});if(!any&&!canvas)q('.foot-social').forEach(function(b){b.style.display='none'})}
+var nav=d.getElementById('site-nav'),ind=d.querySelector('.nav-ind'),burger=d.querySelector('.burger');
+function place(a){if(!ind)return;if(!a){ind.style.opacity='0';return}ind.style.opacity='1';ind.style.width=a.offsetWidth+'px';ind.style.transform='translateX('+a.offsetLeft+'px)'}
+function moveInd(){place(d.querySelector('.nav-links a.active'))}
+function setActive(name){q('[data-nav]').forEach(function(a){var on=a.getAttribute('data-nav')===name;a.classList.toggle('active',on);if(on)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});moveInd()}
+q('.nav-links a').forEach(function(a){a.addEventListener('mouseenter',function(){place(a)});a.addEventListener('mouseleave',moveInd)});
+function closeMenu(){if(!nav)return;nav.classList.remove('open');if(burger)burger.setAttribute('aria-expanded','false')}
+if(burger)burger.addEventListener('click',function(){var o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o?'true':'false')});
+d.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu()});
+w.addEventListener('scroll',function(){if(nav)nav.classList.toggle('scrolled',w.scrollY>8)},{passive:true});
+var views=q('.view');
+function route(first){var p=location.hash.replace(/^#\/?/,'').split('/'),name=p[0]||'home',v=d.getElementById('view-'+name);if(!v){name='home';v=d.getElementById('view-home')}views.forEach(function(x){var on=x===v;x.classList.toggle('on',on);x.setAttribute('aria-hidden',on?'false':'true')});setActive(name);closeMenu();seo(name);var sub=p[1]&&d.getElementById(p[1]);if(sub){setTimeout(function(){sub.scrollIntoView({behavior:(reduce||first)?'auto':'smooth',block:'start'})},40)}else if(!first){w.scrollTo(0,0)}if(!first)pv(name)}
+d.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#/"]');if(!a||canvas)return;closeMenu();if(a.getAttribute('href')===location.hash||(a.getAttribute('href')==='#/'&&!location.hash)){e.preventDefault();w.scrollTo({top:0,behavior:reduce?'auto':'smooth'})}});
+function reveal(){var els=q('.rv');if(canvas||reduce||!('IntersectionObserver' in w)){els.forEach(function(e){e.classList.add('in')});return}var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.08});els.forEach(function(e){io.observe(e)})}
+function spot(){if(reduce)return;q('.spot').forEach(function(c){c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px')})})}
+function form(){var f=d.getElementById('cl-form');if(!f)return;var card=f.closest('.form-card'),err=d.getElementById('cl-err'),btn=f.querySelector('.form-submit'),label=btn?btn.textContent:'Submit Enquiry',t0=Date.now();f.setAttribute('novalidate','');
+function showErr(m){if(!err)return;err.textContent=m;err.hidden=false}
+function check(el){var v=String(el.value||'').trim(),ok=v!=='';if(ok&&el.type==='email')ok=/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(v);if(ok&&el.type==='tel')ok=v.replace(/\D/g,'').length>=10;var g=el.closest('.field-group');if(g)g.classList.toggle('has-error',!ok);el.setAttribute('aria-invalid',ok?'false':'true');return ok}
+function success(){if(card)card.classList.add('sent');var ok=d.getElementById('cl-ok');if(ok){ok.setAttribute('tabindex','-1');ok.focus();card.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'})}}
+f.addEventListener('input',function(e){var g=e.target.closest('.field-group');if(g&&g.classList.contains('has-error'))check(e.target)});f.addEventListener('change',function(e){var g=e.target.closest('.field-group');if(g&&g.classList.contains('has-error'))check(e.target)});
+f.addEventListener('submit',function(e){e.preventDefault();if(err)err.hidden=true;var bad=null;q('[required]',f).forEach(function(el){if(!check(el)&&!bad)bad=el});if(bad){showErr('Please complete the highlighted fields. Check that your email address and phone number are entered correctly.');bad.focus();return}
+var hp=f.querySelector('[name="_honey"]');if((hp&&hp.value)||Date.now()-t0<2500){success();return}
+var data={};q('input,select,textarea',f).forEach(function(el){if(el.name&&el.name!=='_honey')data[el.name]=el.value});data.submitted_from=location.href;
+var url=CONFIG.webhookUrl||(CONFIG.formEmail?'https://formsubmit.co/ajax/'+CONFIG.formEmail:'');if(!url){showErr('This form is not connected yet. Add formEmail or webhookUrl in the page script settings. Meanwhile, please reach us on WhatsApp.');return}
+btn.disabled=true;btn.classList.add('is-loading');btn.textContent='Sending enquiry';
+fetch(url,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)}).then(function(r){return r.json().catch(function(){return {ok:r.ok};}).then(function(j){if(!r.ok||j.success===false||j.success==='false')throw new Error(j.message||'failed');return j})}).then(function(){conv(data);success()}).catch(function(x){var m=String((x&&x.message)||'');showErr(/activat/i.test(m)?'Almost ready: the enquiry inbox needs a one-time activation. Open the email from FormSubmit in the inbox set as formEmail, click Activate, then submit again.':'Your enquiry could not be sent. Check your connection and try again, or message us on WhatsApp.')}).then(function(){btn.disabled=false;btn.classList.remove('is-loading');btn.textContent=label})})}
+function init(){if(!canvas){root.classList.add('js','routed');w.addEventListener('hashchange',function(){route(false)});route(true)}else{seo('home')}links();ld();track();reveal();spot();form();w.addEventListener('resize',moveInd);if(!canvas)pv(location.hash||'home')}
+if(d.readyState!=='loading')init();else d.addEventListener('DOMContentLoaded',init);
+})();</script>
+</body>
+</html>
